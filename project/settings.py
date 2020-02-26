@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clubs',
-    'jwt_auth'
+    'jwt_auth',
+    'books'
 ]
 
 MIDDLEWARE = [
