@@ -42,3 +42,5 @@ class BookDetailView(APIView):
       return Response(status=HTTP_401_UNAUTHORIZED)
     post.delete()
     return Response(status=HTTP_204_NO_CONTENT)
+
+# ADD COMMENT VIEWS HERE SAME AS NEWEST DENZELS
