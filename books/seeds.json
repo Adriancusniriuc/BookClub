@@ -1,0 +1,68 @@
+[
+  {
+    "model": "books.comment",
+    "pk": 1,
+    "fields": {
+      "text": "An oldie, but a goodie",
+      "book": 1,
+      "owner": 1
+    }
+  },
+  {
+    "model": "books.comment",
+    "pk": 2,
+    "fields": {
+      "text": "Brutal",
+      "book": 2,
+      "owner": 1
+    }
+  },
+  {
+    "model": "books.comment",
+    "pk": 3,
+    "fields": {
+      "text": "An amazing read",
+      "book": 3,
+      "owner": 2
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "A Tale of Two Cities",
+      "author": "Charles Dickens",
+      "genre": "Classic",
+      "no_pages": "200",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344922523l/1953.jpg",
+      "rating": 2,
+      "owner": 1
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Lord of the Flies",
+      "author": "William Golding",
+      "genre": "Classic",
+      "no_pages": "300",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327869409l/7624.jpg",
+      "rating": 1,
+      "owner": 1
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "title": "Homegoing",
+      "author": "Yaa Gyasi",
+      "genre": "Classic",
+      "no_pages": "400",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1448108591l/27071490.jpg",
+      "rating": 1,
+      "owner": 2
+    }
+  }
+  ]

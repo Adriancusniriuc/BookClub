@@ -26,5 +26,5 @@ class ClubSerializer(serializers.ModelSerializer):
 
 class PopulatedClubSerializer(ClubSerializer):
 
-  books = BookSerializer(many=True)
+  book = BookSerializer(many=True)
   owner = UserSerializer()

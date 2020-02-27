@@ -24,7 +24,7 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
 
-  def post(self,request):
+  def post(self, request):
     email = request.data.get('email')
     password = request.data.get('password')
 
@@ -36,7 +36,7 @@ class LoginView(APIView):
 
       dt = datetime.now() + timedelta(days=7)
 
-      token = jwt.encode({'sub': user.id, 'exp': int(dt.strftime('%'))}, settings.SECRET_KEY, algorithm='HS256')
+      token = jwt.encode({'sub': user.id, 'exp': int(dt.strftime('%s'))}, settings.SECRET_KEY, algorithm='HS256')
       #this gives you a timestamp
 
       return Response({'token':token, 'message': f'Welcome back {user.username}'})
