@@ -4,7 +4,7 @@ import axios from 'axios'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-import ClubCard from './ClubCard'
+// import ClubCard from './ClubCard'
 import ClubMapComp from './ClubMapComp'
 
 class ClubIndex extends React.Component {

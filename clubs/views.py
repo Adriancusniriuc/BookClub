@@ -35,17 +35,25 @@ class ClubDetailView(APIView):
 
   permission_classes = (IsAuthenticatedOrReadOnly, )
 
+  # def get(self, _request, pk):
+  #   try:
+  #     club = Club.objects.get(pk=pk)
+  #     serialized_clubs = ClubSerializer(club)
+  #     return Response(serialized_clubs.data)
+  #   except Club.DoesNotExist:
+  #     return Response({ 'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
+
   def get(self, _request, pk):
     try:
-      club = Club.objects.get(pk=pk)
-      serialized_clubs = ClubSerializer(club)
+      club = Club.objects.get(pk=pk, )
+      serialized_clubs = PopulatedClubSerializer(club)
       return Response(serialized_clubs.data)
     except Club.DoesNotExist:
       return Response({ 'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
-
   
   def put(self, request, pk):
     request.data['owner'] = request.user.id
+    #            [club]=pk
 
     try:
       club = Club.objects.get(pk=pk)
