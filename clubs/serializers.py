@@ -28,3 +28,7 @@ class PopulatedClubSerializer(ClubSerializer):
 
   book = BookSerializer(many=True)
   owner = UserSerializer()
+  #atendees members    many=true
+
+
+  #atendeee serializer        model user      fields id username

@@ -7,11 +7,14 @@ import ClubShow from './components/clubs/ClubShow'
 import ClubCreate from './components/clubs/ClubCreate'
 import ClubEdit from './components/clubs/ClubEdit'
 import BookCreate from './components/books/BookCreate'
+import BookShow from './components/books/BookShow'
 import MemberIndex from './components/members/MemberIndex'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Nav from './components/common/Nav'
 import Footer from './components/common/Footer'
+
+
 
 
 
@@ -29,6 +32,7 @@ class App extends React.Component {
           <Route path='/clubs/create' component={ClubCreate}/>
           <Route path='/clubs/:id' component={ClubShow}/>
           <Route path='/clubs' component={ClubIndex}/>
+          <Route path='/books/:id' component={BookShow}/>
           <Route path='/books/create' component={BookCreate}/>
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
