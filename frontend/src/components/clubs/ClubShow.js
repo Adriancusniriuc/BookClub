@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CurrentBookCard from '../books/CurrentBookCard'
 import axios from 'axios'
 import PreviousBookCard from '../books/PreviousBookCard'
@@ -27,15 +28,22 @@ class ClubShow extends React.Component {
 
   render() {
     console.log(this.state.previousBooks)
+    console.log(this.state.currentBook)
     if (!this.state.previousBooks) return null
     return(
     <section>
       <h1>This is the Club Show</h1>
+      <Link to={`/books/${this.state.currentBook.id}`}>
       <CurrentBookCard {...this.state.currentBook}/>
-      {this.state.previousBooks.map(previousBook => (
-        <PreviousBookCard key={previousBook.id} {...previousBook}/>
+      </Link>
+
+
+      <Link to={`/books/${this.state.previousBooks.id}`}>
+      {this.state.previousBooks.map((previousBook, i ) => (
+        <PreviousBookCard key={i} {...previousBook}/>
+        
       ))}
-      
+      </Link>
 
     </section>
   )
