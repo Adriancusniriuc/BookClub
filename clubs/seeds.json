@@ -1,0 +1,47 @@
+[
+  {
+    "model": "clubs.club",
+    "pk": 1,
+    "fields": {
+      "name": "Club 1",
+      "venue": "Venue 1",
+      "postcode": "N17 8ED",
+      "date": "Every Monday",
+      "description": "A nice club",
+      "maxspace": "20",
+      "book": [1],
+      "owner": 1,
+      "member": []
+    }
+  },
+  {
+    "model": "clubs.club",
+    "pk": 2,
+    "fields": {
+      "name": "Club 2",
+      "venue": "Venue 2",
+      "postcode": "E9 6SY",
+      "date": "Every Tuesday",
+      "description": "A great club",
+      "maxspace": "10",
+      "book": [2],
+      "owner": 2,
+      "member": [1]
+    }
+  },
+  {
+    "model": "clubs.club",
+    "pk": 3,
+    "fields": {
+      "name": "Club 3",
+      "venue": "Venue 3",
+      "postcode": "SW1 0HS",
+      "date": "Every Wednesday",
+      "description": "A lovely club",
+      "maxspace": "5",
+      "book": [3],
+      "owner": 1,
+      "member": [1]
+    }
+  }
+  ]
