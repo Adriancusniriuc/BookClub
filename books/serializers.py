@@ -9,6 +9,7 @@ class BookSerializer(serializers.ModelSerializer):
     model = Book
     fields = '__all__'
     extra_kwargs = {'comments': {'required': False}}
+    
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -20,11 +21,12 @@ class CommentSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Comment
-    fields = '__all__'
+    fields = ('text', 'owner', 'id')
 
 class PopulatedCommentSerializer(CommentSerializer):
 
   owner = UserSerializer()
+  
 
 class PopulatedBookSerializer(BookSerializer):
 

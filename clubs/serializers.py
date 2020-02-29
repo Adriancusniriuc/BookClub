@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = User
-    fields = ('id', 'username')
+    fields = ('id', 'username', 'image')
 
 class BookSerializer(serializers.ModelSerializer):
 
@@ -28,7 +28,8 @@ class PopulatedClubSerializer(ClubSerializer):
 
   book = BookSerializer(many=True)
   owner = UserSerializer()
-  #atendees members    many=true
+  member = UserSerializer(many=True)
+ 
 
 
   #atendeee serializer        model user      fields id username
