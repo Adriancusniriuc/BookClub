@@ -7,7 +7,7 @@ export default class ImageUpload extends React.Component {
   }
 
   handleUpload = async ({ target: { files } }) => {
-    const data = new FormData
+    const data = new FormData()
     data.append('file', files[0])
     data.append('upload_preset', 'px8nzwkd')
     const res = await axios.post('https://api.cloudinary.com/v1_1/dhemsdusi/image/upload', data)
@@ -22,7 +22,7 @@ export default class ImageUpload extends React.Component {
       <>
       {image ?
         <div>
-          <img src={image} />
+          <img alt="member" src={image} />
         </div>
         :
       <>

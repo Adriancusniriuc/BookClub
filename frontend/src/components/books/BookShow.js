@@ -41,7 +41,7 @@ class BookShow extends React.Component {
 
       <h1>Book Show</h1>
   <div>
-    <img src={this.state.books.image}/>
+    <img alt={this.state.books.title} src={this.state.books.image}/>
     {/* <p>{this.state.books.comments.text}</p> */}
 
     {this.state.books.comments.map((comment, i) => (
