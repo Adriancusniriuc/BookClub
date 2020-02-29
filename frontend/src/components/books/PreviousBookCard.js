@@ -1,17 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PreviousBookCard = ({ image, title, id }) => (
-    <section>
-      <h1>Previous Books</h1>
-      <div>
+const PreviousBookCard = ({ image, title, id, name }) => (
+  
       <Link to={`/books/${id}`}>
-        <h1>{title}</h1>
-        <img src={image}/>
+        {/* <h1>{title}</h1> */}
+        <img className="prev-book-pic" alt={name} src={image}/>
       </Link>
-      </div>
-    </section> 
-
 )
 
 export default PreviousBookCard

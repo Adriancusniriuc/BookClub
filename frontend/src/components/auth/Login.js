@@ -33,6 +33,7 @@ class Login extends React.Component {
 
     return(
     <section>
+      <main className="login">
       <h1>Login Here</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-div">
@@ -55,6 +56,8 @@ class Login extends React.Component {
               Login</button>
           </div>
         </form>
+      </main>
+      
     </section>
   )
   }

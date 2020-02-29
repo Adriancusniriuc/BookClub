@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import './styles/main.scss'
 
 import Home from './components/common/Home'
 import ClubIndex from './components/clubs/ClubIndex'
@@ -22,7 +23,6 @@ class App extends React.Component {
 
   render(){
     return(
-      <main>
         <BrowserRouter>
           <Nav/>
           <Switch>
@@ -39,7 +39,6 @@ class App extends React.Component {
           </Switch>
           <Footer/>
         </BrowserRouter> 
-      </main>
     )
   }
 

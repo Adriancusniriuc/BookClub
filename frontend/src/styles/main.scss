@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  // min-height: 100vh;
+  flex-direction: column;
+}
+
+nav {
+  height: 4em;
+  background-color: rgb(59, 56, 56);
+  display: flex;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    // font-family: 'Sue Ellen Francisco', sans-serif;
+    margin: 18px; 
+  }
+  a:hover {
+    color: rgb(218, 114, 17);
+  }
+}
+
+// section {
+//   min-height: 100%;
+// }
+
+.marker {
+  height: 40px;
+  width: 40px;
+}
+
+.club-show {
+  display: flex;
+justify-content: center;}
+
+.club-info {
+  border: 1px solid black;
+  width: 35%;
+  margin: 20px;
+}
+
+.current-book {
+  border: 1px solid black;
+  width: 35%;
+  margin: 20px;
+}
+
+.book-pic {
+  height: 330px;
+  width: 220px;
+}
+
+.prev-book {
+  width: 80%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.prev-book-pic {
+  height: 220px;
+  width: 150px;
+  margin: 40px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // height: 100vh;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+// form {
+//   border: 1px solid black;
+// }
+
+button {
+  // border: 2px solid black;
+  background-color: white;
+  border-color: rgb(185, 132, 63);
+  color: rgb(218, 114, 17);
+  color: black;
+  margin: 20px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(218, 114, 17);
+  color: white;
+}
+
+footer {
+  position: absolute;
+  background-color: rgb(59, 56, 56);
+  bottom: 0;
+  width: 100%;
+  // height: 60px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  flex: 1;
+  p {
+    color: white;
+    font-size: 20px;
+    font-family: 'Sue Ellen Francisco', sans-serif;
+  }   
+}
+
+// ! App.css in source:
+// .App {
+//   text-align: center;
+// }
+
+// .App-logo {
+//   height: 40vmin;
+//   pointer-events: none;
+// }
+
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
+
+// .App-header {
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
+
+// .App-link {
+//   color: #61dafb;
+// }
+
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// ! index.css in src:
+// body {
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
