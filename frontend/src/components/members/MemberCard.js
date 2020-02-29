@@ -6,7 +6,7 @@ const MemberCard = ({ username, image })  => (
       <p>{username}</p>
       
       <img src={image}/>
-       
+    
 
     </section> 
 
