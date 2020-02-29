@@ -41,7 +41,7 @@ const ClubMapComp = ({
               return club.postcode === postcode.query ? (
                 <Link key={i} to={`/clubs/${club.id}`}>
                   <div>
-                    <img src='https://image.flaticon.com/icons/svg/29/29302.svg' />
+                    <img className="marker" alt="bookclub-marker" src='https://image.flaticon.com/icons/svg/29/29302.svg' />
                   </div>
                 </Link>
               ) : null

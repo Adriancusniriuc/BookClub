@@ -4,10 +4,7 @@ const MemberCard = ({ username, image })  => (
     <section>
       <h1>Member Card</h1>
       <p>{username}</p>
-      
-      <img src={image}/>
-       
-
+      <img alt="member" src={image}/>
     </section> 
 
 )
