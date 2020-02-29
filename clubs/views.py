@@ -68,7 +68,7 @@ class ClubDetailView(APIView):
       return Response({ 'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
 
   def delete(self, request, pk):
-    # request.data['owner'] = request.user.id
+    
     try:
         club = Club.objects.get(pk=pk)
         if club.owner.id != request.user.id:

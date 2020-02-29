@@ -59,7 +59,11 @@ class CommentListView(APIView):
   
   permission_classes = (IsAuthenticatedOrReadOnly, )
 
-
+  def get(self, _request):
+    comment = Comment.objects.all()
+    serialized_comment = PopulatedCommentSerializer(comment, many=True)
+    return Response(serialized_comment.data)
+  
   def post(self, request, pk):
       request.data['book'] = pk
       request.data['owner'] = request.user.id

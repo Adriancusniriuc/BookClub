@@ -12,6 +12,7 @@ class Book(models.Model):
   image = models.CharField(max_length=300)
   rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
   owner = models.ForeignKey(User, related_name='books', null=True, on_delete=models.CASCADE)
+  # comment = models.ForeignKey(Comment, related_name='comment', on_delete=models.CASCADE)
 
   def __str__(self):
     return self.title

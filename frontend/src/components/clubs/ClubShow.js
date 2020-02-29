@@ -29,21 +29,47 @@ class ClubShow extends React.Component {
   render() {
     console.log(this.state.previousBooks)
     console.log(this.state.currentBook)
+    const clubs = this.state.clubs
     if (!this.state.previousBooks) return null
     return(
     <section>
-      <h1>This is the Club Show</h1>
-      <Link to={`/books/${this.state.currentBook.id}`}>
-      <CurrentBookCard {...this.state.currentBook}/>
+      <h1>{clubs.name}</h1>
+
+      <div className="club-info">
+      <p>{clubs.venue}</p>
+      <p>{clubs.postcode}</p>
+      <p>{clubs.date}</p>
+      <p>{clubs.description}</p>
+
+
+      <Link to={`/clubs/${clubs.id}/members/`}>
+      <button >Members</button>
       </Link>
 
+      <Link to={`/books/create/`}>
+      <button>Next Book</button>
+      </Link>
 
-      <Link to={`/books/${this.state.previousBooks.id}`}>
+      <Link to={`/clubs/${clubs.id}/edit/`}>
+      <button>Club Edit</button>
+      </Link>
+
+      <Link to={`/clubs/`}>
+      <button>Delete</button>
+      </Link>
+
+      </div>
+
+      <div className="current-book-card">
+      <CurrentBookCard {...this.state.currentBook}/>
+      </div>
+
+      <div className="previous-book-card">
       {this.state.previousBooks.map((previousBook, i ) => (
         <PreviousBookCard key={i} {...previousBook}/>
-        
       ))}
-      </Link>
+      </div>
+      
 
     </section>
   )

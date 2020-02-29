@@ -36,7 +36,7 @@ const ClubMapComp = ({
           latitude={postcode.result.latitude}
           longitude={postcode.result.longitude}
         >
-                <button className="marker">
+                
             {clubs.map((club, i) => {
               return club.postcode === postcode.query ? (
                 <Link key={i} to={`/clubs/${club.id}`}>
@@ -46,7 +46,7 @@ const ClubMapComp = ({
                 </Link>
               ) : null
             })}
-          </button>
+          
         </Marker>
       )
     })}
