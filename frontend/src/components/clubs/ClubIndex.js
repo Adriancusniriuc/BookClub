@@ -81,7 +81,15 @@ class ClubIndex extends React.Component {
               <ClubCard key={i} {...club} />
             ))}
           </div> */}
-
+<div>
+            {/* {Authorization.isAuthenticated() ? */}
+              <Link to="/clubs/create">
+                <button
+                  className="button"
+                  type="button">Create club</button>
+              </Link> 
+               {/* : null */}
+          </div>
 
           <div className="map-container">
             <ClubMapComp
@@ -96,15 +104,7 @@ class ClubIndex extends React.Component {
           </div>
 
           
-          <div>
-            {/* {Authorization.isAuthenticated() ? */}
-              <Link to="/clubs/new">
-                <button
-                  className="button"
-                  type="button">New club</button>
-              </Link> 
-               {/* : null */}
-          </div>
+          
          
         </div>
 

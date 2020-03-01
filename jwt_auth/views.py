@@ -5,13 +5,20 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.status import HTTP_422_UNPROCESSABLE_ENTITY
 from django.contrib.auth import get_user_model
 from django.conf import settings
-import jwt
 
+# from django.views.decorators.csrf import ensure_csrf_cookie
+# from django.core.context_processors import csrf
+
+import jwt
 from .serializers import UserSerializer
 User = get_user_model()
 
-class RegisterView(APIView):
 
+ 
+
+
+class RegisterView(APIView):
+  
   def post(self, request):
 
     serialized_user = UserSerializer(data=request.data)
@@ -23,7 +30,7 @@ class RegisterView(APIView):
     return Response(serialized_user.errors, status=HTTP_422_UNPROCESSABLE_ENTITY )
 
 class LoginView(APIView):
-
+  # @ensure_csrf_cookie
   def post(self, request):
     email = request.data.get('email')
     password = request.data.get('password')
@@ -43,3 +50,4 @@ class LoginView(APIView):
     
     except User.DoesNotExist:
       raise PermissionDenied({'message': 'Invalid Credentials'})
+  

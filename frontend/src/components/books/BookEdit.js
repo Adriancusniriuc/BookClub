@@ -5,7 +5,7 @@ import Authorization from '../../lib/authorization'
 import { headers } from '../../lib/headers'
 
 
-class BookCreate extends React.Component {
+class BookEdit extends React.Component {
   state = {
     data: {
       title: '',
@@ -17,19 +17,29 @@ class BookCreate extends React.Component {
     }
   }
 
-  handleChange = ({ target: { name, value } }) => {
-    const data = { ...this.state.data, [name]: value }
-    console.log(data)
+  async componentDidMount() {
+    const bookId = this.props.match.params.id
+    try {
+      const res = await axios.get(`/api/books/${bookId}`)
+      this.setState({ data: res.data })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  handleChange = e => {
+    const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
   }
 
   handleSubmit = async e => {
     e.preventDefault()
+    const bookId = this.props.match.params.id
     try {
-      const res = await axios.post('/api/books/', this.state.data, headers, {
+      const { data } = await axios.put(`/api/books/${bookId}/`, this.state.data, headers, {
         headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
       })
-      this.props.history.push(`/books/${res.data.id}`)
+      this.props.history.push(`/books/${data.id}`)
     } catch (error) {
       console.log(error)
     }
@@ -39,7 +49,7 @@ class BookCreate extends React.Component {
 
     return(
     <section>
-      <h1>Book Create</h1>
+      <h1>Book Edit</h1>
       <BookForm
       data={this.state.data}
       handleChange={this.handleChange}
@@ -50,4 +60,4 @@ class BookCreate extends React.Component {
 
 }
 
-export default BookCreate
+export default BookEdit
