@@ -5,9 +5,9 @@
 
 html, body {
   height: 100%;
-  display: flex;
+  // display: flex;
   // min-height: 100vh;
-  flex-direction: column;
+  // flex-direction: column;
 }
 
 nav {
@@ -27,34 +27,60 @@ nav {
   }
 }
 
-// section {
-//   min-height: 100%;
-// }
+section {
+  height: 90vh;
+  // margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section:after {
+  content: "";
+  display: block;
+}
+
+h1 {
+  padding: 20px;
+}
 
 .marker {
   height: 40px;
   width: 40px;
 }
 
+// ! HOME PAGE
+// .home {
+//   background-image: url("../assets/Photo\ 14-09-2018\,\ 17\ 57\ 11.jpg");
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+// ! CLUB SHOW PAGE
 .club-show {
   display: flex;
 justify-content: center;}
 
 .club-info {
   border: 1px solid black;
-  width: 35%;
+  width: 40%;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .current-book {
   border: 1px solid black;
-  width: 35%;
+  width: 40%;
   margin: 20px;
 }
 
-.book-pic {
+.current-book-pic {
   height: 330px;
   width: 220px;
+  text-align: center;
 }
 
 .prev-book {
@@ -70,6 +96,54 @@ justify-content: center;}
   margin: 40px;
 }
 
+// ! BOOK SHOW PAGE
+
+// ! MEMBER INDEX
+.member-index {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.member-card {
+  border: 1px solid rgb(197, 190, 190);
+  margin: 30px;
+  width:190px;
+  p {
+    background-color: rgb(218, 114, 17);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+}
+
+.member-pic {
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.fake-member-card {
+  border: 1px solid rgb(197, 190, 190);
+  margin: 30px;
+  width:190px;
+  p {
+    background-color: rgb(218, 114, 17);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+}
+
+.fake-member-pic {
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+}
+
+// ! LOGIN & REGISTER
 .login {
   display: flex;
   flex-direction: column;
@@ -87,6 +161,11 @@ justify-content: center;}
 // form {
 //   border: 1px solid black;
 // }
+
+.button-div {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 button {
   // border: 2px solid black;
@@ -106,16 +185,16 @@ button:hover {
   color: white;
 }
 
-footer {
-  position: absolute;
+footer, section:after {
+  // position: absolute;
   background-color: rgb(59, 56, 56);
-  bottom: 0;
-  width: 100%;
-  // height: 60px;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  flex: 1;
+  // bottom: 0;
+  // width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // flex: 1;
   p {
     color: white;
     font-size: 20px;

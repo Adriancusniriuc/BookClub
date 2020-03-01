@@ -13,7 +13,7 @@ class Login extends React.Component {
 
   handleChange = ({ target: { name, value } }) => {
     const data = { ...this.state.data, [name]: value }
-    this.setState({ data, error: '' })
+    this.setState({ data })
   }
 
   handleSubmit = async e => {
@@ -33,7 +33,7 @@ class Login extends React.Component {
 
     return(
     <section>
-      <main className="login">
+      {/* <main className="login"> */}
       <h1>Login Here</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-div">
@@ -56,7 +56,7 @@ class Login extends React.Component {
               Login</button>
           </div>
         </form>
-      </main>
+      {/* </main> */}
       
     </section>
   )

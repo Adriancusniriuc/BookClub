@@ -38,17 +38,16 @@ class ClubShow extends React.Component {
       <main className="club-show">
       <div className="club-info">
       <h1>{clubs.name}</h1>
-      <p>{clubs.venue}</p>
-      <p>{clubs.postcode}</p>
-      <p>{clubs.date}</p>
-      <p>{clubs.description}</p>
+      <p>We meet at: {clubs.venue}, {clubs.postcode}</p>
+      <p>Next meet: {clubs.date}</p>
+      <p>A bit about us: {clubs.description}</p>
 
-
+      <div className="button-div">
       <Link to={`/clubs/${clubs.id}/members/`}>
-      <button >Members List</button>
+      <button >Members</button>
       </Link>
 
-      <Link to={`/books/create/`}>
+      <Link to={'/books/create/'}>
       <button>Add Book</button>
       </Link>
 
@@ -59,6 +58,7 @@ class ClubShow extends React.Component {
       <Link to={`/clubs/`}>
       <button>Delete Club</button>
       </Link>
+      </div>
 
       </div>
 
