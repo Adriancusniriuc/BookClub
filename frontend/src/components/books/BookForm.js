@@ -18,7 +18,7 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
           <input
             onChange={handleChange}
             placeholder="Author"
-            name="Author" 
+            name="author" 
             value={data.author}
             required/>
         </div>

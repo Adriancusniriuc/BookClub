@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+// import DjangoCSRFToken from 'django-react-csrftoken'
 import Authorization from '../../lib/authorization'
 import { headers } from '../../lib/headers'
+
 
 class Login extends React.Component {
   state = {
@@ -36,6 +38,7 @@ class Login extends React.Component {
       {/* <main className="login"> */}
       <h1>Login Here</h1>
         <form onSubmit={this.handleSubmit}>
+          {/* <DjangoCSRFToken/> */}
           <div className="form-div">
             <input
               placeholder="username"

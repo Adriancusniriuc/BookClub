@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CurrentBookCard from '../books/CurrentBookCard'
 import axios from 'axios'
 import PreviousBookCard from '../books/PreviousBookCard'
+import Authorization from '../../lib/authorization'
 
 class ClubShow extends React.Component {
   state = {
@@ -13,19 +14,31 @@ class ClubShow extends React.Component {
 
   async componentDidMount(){
     const clubId = this.props.match.params.id
-    
     try{
-      
       const res = await axios.get(`/api/clubs/${clubId}`)
       // this.setState({ clubs:res.data, currentBook:res.data.book[0], previousBooks:res.data.book.slice(1) })
       this.setState({ clubs:res.data, currentBook:res.data.book.slice(-1).pop(), previousBooks:res.data.book.slice(0, -1) })
-      // console.log(res.data)
-      // console.log(this.state.currentBook)
       console.log(res.data.book)
       console.log(this.state.previousBooks)
     }catch (error) {
       console.log(error)
     }
+  }
+
+  handleDelete = async () => {
+    const clubId = this.props.match.params.id
+    try {
+      await axios.delete(`/api/clubs/${clubId}`, {
+        headers: { Authorization: `Bearer ${Authorization.getToken()}` }
+      })
+      this.props.history.push('/clubs')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  isClubOwner = () => {
+    return Authorization.getPayload().sub === this.state.clubs.user.id
   }
 
   render() {
@@ -47,6 +60,9 @@ class ClubShow extends React.Component {
       <button >Members</button>
       </Link>
 
+      {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
+
+      <div>
       <Link to={'/books/create/'}>
       <button>Add Book</button>
       </Link>
@@ -55,9 +71,13 @@ class ClubShow extends React.Component {
       <button>Edit Club</button>
       </Link>
 
-      <Link to={`/clubs/`}>
-      <button>Delete Club</button>
-      </Link>
+      <button
+      onClick={this.handleDelete}>
+        Delete Club</button>
+
+      </div>
+      {/* : null */}
+
       </div>
 
       </div>
