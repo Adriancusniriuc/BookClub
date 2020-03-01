@@ -23,11 +23,17 @@ async componentDidMount() {
     if (!this.state.clubs) return null
     return(
     <section>
-      <h1>This is the member index</h1>
+      <h1>These are our members!</h1>
+      <div className="member-index">
       {this.state.clubs.map((club, i) => (
         <MemberCard key={i} {...club}/>
       ))}
 
+      <div className="fake-member-card">
+        <img className="fake-member-pic" alt="fake-member" src="https://www.kkmm.gov.my/images/sub_bahagian/icon.png"/>
+        <p>Join this club!</p>
+      </div>
+      </div>
 
       
     </section>

@@ -1,11 +1,11 @@
 import React from 'react'
 
 const MemberCard = ({ username, image })  => (
-    <section>
-      <h1>Member Card</h1>
-      <p>{username}</p>
-      <img alt="member" src={image}/>
-    </section> 
+      
+        <div className="member-card">
+          <img className="member-pic" alt="member" src={image}/>
+          <p>{username}</p>
+        </div>
 
 )
 
