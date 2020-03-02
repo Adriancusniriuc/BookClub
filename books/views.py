@@ -4,7 +4,10 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_202_ACCEPTED
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Book, Comment
+# from clubs.models import Club
 from .serializers import BookSerializer, CommentSerializer, PopulatedBookSerializer, PopulatedCommentSerializer
+# from clubs.serializers import PopulatedClubSerializer
+
 
 class BookListView(APIView):
 
@@ -15,11 +18,22 @@ class BookListView(APIView):
     serialized_books = PopulatedBookSerializer(books, many=True)
     return Response(serialized_books.data)
 
-  def post(self, request):
+  def post(self, request, *args, **kwargs):
     request.data['owner'] = request.user.id
+    # request.data['clubs'] = request.clubs.pk
+    # request.data['book'] = pk
+
+  #HERE 
     book = BookSerializer(data=request.data)
     if book.is_valid():
       book.save()
+      # club = Club.objects.get(pk=pk)
+      # club = Club.objects.get(pk=request.club.id)
+      # serialized_club = PopulatedClubSerializer(club)
+
+      # return Response(serialized_club.data)
+    #HERE
+
       return Response(book.data, status=HTTP_201_CREATED)
     return Response(book.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
@@ -83,10 +97,10 @@ class CommentDetailView(APIView):
 
   permission_classes = (IsAuthenticatedOrReadOnly, )
 
-  def delete(self, request, **kwargs):
+  def delete(self, request, comment_pk, **kwargs):
     
     try:
-      comment = Comment.objects.get(pk=kwargs['comment_pk'])
+      comment = Comment.objects.get(pk=comment_pk)
       if comment.owner.id != request.user.id:
         return Response(status=HTTP_401_UNAUTHORIZED)
       comment.delete()

@@ -29,13 +29,13 @@ class App extends React.Component {
           <Nav/>
           <Switch>
           <Route exact path='/' component={Home}/>
+          <SecureRoute path='/clubs/:id/books/create' component={BookCreate}/>
           <Route path='/clubs/:id/members' component={MemberIndex}/>
           <SecureRoute path='/clubs/:id/edit' component={ClubEdit}/>
           <SecureRoute path='/clubs/create' component={ClubCreate}/>
           <Route path='/clubs/:id' component={ClubShow}/>
           <Route path='/clubs' component={ClubIndex}/>
           <SecureRoute path='/books/:id/edit' component={BookEdit}/>
-          <SecureRoute path='/books/create' component={BookCreate}/>
           <Route path='/books/:id' component={BookShow}/>
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
