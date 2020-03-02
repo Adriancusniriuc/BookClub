@@ -18,8 +18,8 @@ class ClubShow extends React.Component {
       const res = await axios.get(`/api/clubs/${clubId}`)
       // this.setState({ clubs:res.data, currentBook:res.data.book[0], previousBooks:res.data.book.slice(1) })
       this.setState({ clubs:res.data, currentBook:res.data.book.slice(-1).pop(), previousBooks:res.data.book.slice(0, -1) })
-      console.log(res.data.book)
-      console.log(this.state.previousBooks)
+      console.log(res.data)
+      // console.log(this.state.previousBooks)
     }catch (error) {
       console.log(error)
     }
@@ -42,7 +42,7 @@ class ClubShow extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentBook)
+    // console.log(this.state.currentBook)
     const clubs = this.state.clubs
     if (!this.state.previousBooks) return null
     return(

@@ -3,6 +3,7 @@ import axios from 'axios'
 import BookForm from './BookForm'
 import Authorization from '../../lib/authorization'
 import { headers } from '../../lib/headers'
+import { withRouter } from 'react-router-dom'
 
 
 class BookCreate extends React.Component {
@@ -13,8 +14,9 @@ class BookCreate extends React.Component {
       genre: '',
       no_pages: '',
       image: '',
-      rating: null,
+      rating: '',
     }
+    
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -26,10 +28,11 @@ class BookCreate extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/books/', this.state.data, headers, {
+      await axios.post('/api/books/', this.state.data, headers, {
         headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
       })
-      this.props.history.push(`/books/${res.data.id}`)
+      // this.props.history.push(`/books/${res.data.id}`)
+      this.props.history.goBack()
     } catch (error) {
       console.log(error)
     }
@@ -50,4 +53,4 @@ class BookCreate extends React.Component {
 
 }
 
-export default BookCreate
+export default withRouter(BookCreate)

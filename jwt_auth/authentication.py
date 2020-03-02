@@ -6,7 +6,6 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 
-
 User = get_user_model()
 
 class JWTAuthentication(BasicAuthentication):
@@ -17,7 +16,8 @@ class JWTAuthentication(BasicAuthentication):
 
     if not header:
       return None
-
+    if header.startswith('Basic'):
+      return None
     if not header.startswith('Bearer'):
       raise PermissionDenied({'message': 'Invalid Authorization Header'})
     # raise === throw an error

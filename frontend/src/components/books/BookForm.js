@@ -39,14 +39,14 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
             />
         </div>
 
-        {/* <div className="form-div">
+        <div className="form-div">
           <input
             onChange={handleChange}
             placeholder="Rating"
             name="rating" 
             value={data.rating}
             />
-        </div> */}
+        </div>
           <div className="form-div">
           <label>* required field</label>
           <ImageUpload

@@ -54,6 +54,7 @@ class ClubDetailView(APIView):
   def put(self, request, pk):
     request.data['owner'] = request.user.id
     #            [club]=pk
+    # request.data['member'] = request.user.id
 
     try:
       club = Club.objects.get(pk=pk)

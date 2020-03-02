@@ -30,7 +30,7 @@ handleClick = async e => {
   // const clubId = this.props.match.params.id
   const userId = this.props.match.params.id
   
-  // console.log(membersArr)
+  console.log(userId)
   try {
     // const response = await axios.get(`/api/profiles/${userId}`)
     const response = await axios.get(`/api/clubs/${userId}`)
