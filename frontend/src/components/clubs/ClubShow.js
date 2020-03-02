@@ -5,6 +5,7 @@ import axios from 'axios'
 import PreviousBookCard from '../books/PreviousBookCard'
 import Authorization from '../../lib/authorization'
 
+
 class ClubShow extends React.Component {
   state = {
     clubs: null,
@@ -15,12 +16,9 @@ class ClubShow extends React.Component {
   async componentDidMount(){
     const clubId = this.props.match.params.id
     try{
-      const res = await axios.get(`/api/clubs/${clubId}`)
-      // this.setState({ clubs:res.data, currentBook:res.data.book[0], previousBooks:res.data.book.slice(1) })
-      this.setState({ clubs:res.data, currentBook:res.data.book.slice(-1).pop(), previousBooks:res.data.book.slice(0, -1) })
-      console.log(res.data.book)
-      console.log(this.state.previousBooks)
-    }catch (error) {
+      const { data } = await axios.get(`/api/clubs/${clubId}`)
+      this.setState({ clubs: data, currentBook: data.book.slice(-1).pop(), previousBooks: data.book.slice(0, -1) })
+    } catch (error) {
       console.log(error)
     }
   }
@@ -42,9 +40,11 @@ class ClubShow extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentBook)
+    // console.log(this.state.currentBook)
     const clubs = this.state.clubs
+    const clubId = this.props.match.params.id
     if (!this.state.previousBooks) return null
+    if (!this.state.clubs) return null
     return(
     <section>
       
@@ -63,7 +63,7 @@ class ClubShow extends React.Component {
       {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
 
       <div>
-      <Link to={'/books/create/'}>
+      <Link to={`/clubs/${clubId}/books/create/`}>
       <button>Add Book</button>
       </Link>
 
@@ -79,7 +79,8 @@ class ClubShow extends React.Component {
       {/* : null */}
 
       </div>
-
+      
+      
       </div>
 
       {/* <div className="current-book"> */}

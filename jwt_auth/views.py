@@ -32,11 +32,11 @@ class RegisterView(APIView):
 class LoginView(APIView):
   # @ensure_csrf_cookie
   def post(self, request):
-    email = request.data.get('email')
+    username = request.data.get('username')
     password = request.data.get('password')
 
     try:
-      user = User.objects.get(email=email)
+      user = User.objects.get(username=username)
 
       if not user.check_password(password):
         raise PermissionDenied({'message': 'Invalid Credentials'})

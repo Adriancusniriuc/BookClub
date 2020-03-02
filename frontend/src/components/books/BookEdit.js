@@ -13,7 +13,7 @@ class BookEdit extends React.Component {
       genre: '',
       no_pages: '',
       image: '',
-      rating: null,
+      rating: '',
     }
   }
 
