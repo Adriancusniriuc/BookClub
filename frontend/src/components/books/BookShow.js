@@ -88,10 +88,9 @@ class BookShow extends React.Component {
     console.log('hello', this.state.books)
     return(
       <section>
-
-      <h1>Book Show</h1>
-  <div>
-    <img alt={this.state.books.title} src={this.state.books.image}/>
+        <main className="bookshow">
+        <div className="book">
+    <img className="bookshow-img" alt={this.state.books.title} src={this.state.books.image}/>
     {/* <p>{this.state.books.comments.text}</p> */}
    
     {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
@@ -104,8 +103,10 @@ class BookShow extends React.Component {
     onClick={this.handleDelete}>
     Delete Book</button>
     </div>
+    </div>
+
     {/* : null } */}
-    
+    <div className="comments">
     {this.state.books.comments.map((comment, i) => (
         <p key={i}>{comment.text}
         <button
@@ -116,7 +117,6 @@ class BookShow extends React.Component {
         Delete</button>
         </p>
       ))}
-
         <form className="review-form" onSubmit={this.handleSubmitComment}>
           <div>
             <textarea
@@ -128,10 +128,11 @@ class BookShow extends React.Component {
           </div>       
           <div>
             <button className="button" type="submit">Add</button>
-          </div>      
+          </div>  
+              
         </form>
-      </div>
-
+        </div>
+        </main>
       </section>
     )
   }

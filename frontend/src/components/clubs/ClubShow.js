@@ -50,10 +50,12 @@ class ClubShow extends React.Component {
       
       <main className="club-show">
       <div className="club-info">
-      <h1>{clubs.name}</h1>
-      <p>We meet at: {clubs.venue}, {clubs.postcode}</p>
-      <p>Next meet: {clubs.date}</p>
-      <p>A bit about us: {clubs.description}</p>
+      <h2>{clubs.name}</h2>
+      <div className="content">
+      <p><b>We meet at:</b>  {clubs.venue}, {clubs.postcode}</p>
+      <p><b>When?</b>  {clubs.date}</p>
+      <p><b>A bit about us:</b>  {clubs.description}</p>
+      </div>
 
       <div className="button-div">
       <Link to={`/clubs/${clubs.id}/members/`}>
@@ -61,8 +63,6 @@ class ClubShow extends React.Component {
       </Link>
 
       {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
-
-      <div>
       <Link to={`/clubs/${clubId}/books/create/`}>
       <button>Add Book</button>
       </Link>
@@ -74,13 +74,9 @@ class ClubShow extends React.Component {
       <button
       onClick={this.handleDelete}>
         Delete Club</button>
-
-      </div>
       {/* : null */}
 
       </div>
-      
-      
       </div>
 
       {/* <div className="current-book"> */}
@@ -89,7 +85,7 @@ class ClubShow extends React.Component {
       </main>
 
       
-      <h1>Previous Books</h1>
+      <h2>Previous Books:</h2>
       <div className="prev-book">
       {this.state.previousBooks.map((previousBook, i ) => (
         <PreviousBookCard key={i} {...previousBook}/>

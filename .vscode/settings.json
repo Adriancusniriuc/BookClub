@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "usr/local/opt/python/bin/python3.7",
+  "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.8/bin/python3",
   "peacock.color": "#557c9b",
   "workbench.colorCustomizations": {
     "activityBar.background": "#7295b1",
