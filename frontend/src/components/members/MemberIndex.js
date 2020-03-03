@@ -27,8 +27,8 @@ getData = async () => {
   try {
     const res = await axios.get(`/api/clubs/${clubId}/`)
     this.setState({ members: res.data.member, clubs: res.data })
-    const memberId = this.state.members
-    console.log('here', memberId)
+    // const memberId = this.state.members
+    // console.log('here', memberId)
   } catch (error) {
     console.log(error)
   }
@@ -66,7 +66,7 @@ handleSubmit = async e => {
 
   const bookPkArr = []
   clubs.book.map(bk => bookPkArr.push(bk.id))
-  console.log(clubs.member)
+  // console.log(clubs.member)
   const sendData = {
     name: clubs.name,
     venue: clubs.venue,

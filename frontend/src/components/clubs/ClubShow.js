@@ -16,7 +16,7 @@ class ClubShow extends React.Component {
   async componentDidMount(){
     const clubId = this.props.match.params.id
     try{
-      const { data } = await axios.get(`/api/clubs/${clubId}`)
+      const { data } = await axios.get(`/api/clubs/${clubId}/`)
       this.setState({ clubs: data, currentBook: data.book.slice(-1).pop(), previousBooks: data.book.slice(0, -1) })
     } catch (error) {
       console.log(error)
@@ -40,7 +40,8 @@ class ClubShow extends React.Component {
   }
 
   render() {
-    // console.log(this.state.currentBook)
+    console.log(this.state.currentBook)
+    console.log(this.state.previousBooks)
     const clubs = this.state.clubs
     const clubId = this.props.match.params.id
     if (!this.state.previousBooks) return null

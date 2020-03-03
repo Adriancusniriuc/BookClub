@@ -11,9 +11,9 @@ class BookShow extends React.Component {
   }
 
   getData = async () => {
-    const bookId = this.props.match.params.id
+    // const bookId = this.props.match.params.id
     try {
-      const res = await axios.get(`/api/books/${bookId}/`)
+      const res = await axios.get(`/api/books/`)
       this.setState({ books: res.data})
     } catch (error) {
       console.log(error)
@@ -46,8 +46,6 @@ class BookShow extends React.Component {
   handleSubmitComment = async (e) => {
     e.preventDefault()
     const bookId = this.props.match.params.id
-    // console.log(bookId)
-    // const commentId = this.props.match.params.id
     try {
       await axios.post(`/api/books/${bookId}/comments/`, { text: this.state.text }, {
         headers: { Authorization: `Bearer ${Authorization.getToken()}` }
@@ -63,7 +61,7 @@ class BookShow extends React.Component {
     e.preventDefault()
     const bookId = this.props.match.params.id
     const commentId = e.target.name
-    // console.log(e.target.name)
+   
     try {
       await axios.delete(`/api/books/${bookId}/comments/${commentId}/`, {
         headers: { Authorization: `Bearer ${Authorization.getToken()}` } 
@@ -80,7 +78,6 @@ class BookShow extends React.Component {
   }
 
   render() {
-    // console.log(this.state.text)
     if (!this.state.books) return null
     const { text } = this.state
     // const bookId = this.props.match.params.id
