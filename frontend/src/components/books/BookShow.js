@@ -57,7 +57,6 @@ class BookShow extends React.Component {
       console.log(err)
     }
     this.getData()
-    
   }
 
   handleDeleteComment = async (e) => {

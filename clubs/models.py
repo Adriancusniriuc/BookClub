@@ -11,6 +11,7 @@ class Club(models.Model):
   date = models.CharField(max_length=50)
   description = models.CharField(max_length=300)
   maxspace = models.CharField(max_length=50)
+  # https://stackoverflow.com/questions/19555760/django-use-of-related-name
   book = models.ManyToManyField('books.Book', related_name='clubs+', blank=True)
   owner = models.ForeignKey(User, related_name='clubs', null=True, on_delete=models.CASCADE)
   member = models.ManyToManyField(User, related_name='members', blank=True) 
