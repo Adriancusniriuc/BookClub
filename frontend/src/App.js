@@ -15,7 +15,7 @@ import MemberIndex from './components/members/MemberIndex'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Nav from './components/common/Nav'
-import Footer from './components/common/Footer'
+// import Footer from './components/common/Footer'
 
 
 
@@ -40,7 +40,7 @@ class App extends React.Component {
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
           </Switch>
-          <Footer/>
+          {/* <Footer/> */}
         </BrowserRouter> 
     )
   }

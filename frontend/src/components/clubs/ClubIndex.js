@@ -72,16 +72,8 @@ class ClubIndex extends React.Component {
     // console.log('postcodes', this.state.postcodes)
     return(
     <section>
-      <h1>This is the index</h1>
-
-    <div className="index" >
-{/* 
-    <div className="card-container">
-          {this.state.clubs.map((club, i) => (
-              <ClubCard key={i} {...club} />
-            ))}
-          </div> */}
-<div>
+          <div className="index">
+            <h1>Find a book club in your area!</h1>
             {/* {Authorization.isAuthenticated() ? */}
               <Link to="/clubs/create">
                 <button
@@ -102,11 +94,6 @@ class ClubIndex extends React.Component {
               clubs={this.state.clubs}
             />
           </div>
-
-          
-          
-         
-        </div>
 
     </section>
   )
