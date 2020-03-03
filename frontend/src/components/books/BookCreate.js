@@ -8,18 +8,29 @@ import { headers } from '../../lib/headers'
 
 class BookCreate extends React.Component {
   state = {
-    books: null,
-    clubId: [],
+    books: [],
+    club: null,
     data: {
       title: '',
       author: '',
       genre: '',
       no_pages: '',
       image: '',
-      rating: '',
-      // clubId:[]
+      rating: ''
     }
-    
+  }
+
+  getData = async () => {
+    const clubId = this.props.match.params.id
+    try {
+      const res = await axios.get(`/api/clubs/${clubId}/`)
+      this.setState({ club: res.data })
+    } catch (error) {
+      console.log(error)
+    }
+    }
+  componentDidMount() {
+    this.getData()
   }
 
 
@@ -28,28 +39,73 @@ class BookCreate extends React.Component {
     console.log(data)
     this.setState({ data })
   }
-
+ 
   handleSubmit = async e => {
     e.preventDefault()
+      
     try {
       const clubId = this.props.match.params.id
       console.log(clubId)
       // const data = { ...this.state.data, clubs:[clubId] }
-      const res = await axios.post('/api/books/', this.state.data, headers)
-
-      this.props.history.push(`/books/${res.data.id}`)
-
+      const res = await axios.post(`/api/books/`, this.state.data, headers)
+      const bookId = res.data
+      console.log('bookid', bookId)
+      this.state.club.book.push(bookId)
+      console.log('book in data', this.state.club.book)
       this.setState({ data: res.data })
+      // this.props.history.push(`/books/${res.data.id}`)
+
+      this.addToClub()
       // this.props.history.goBack()
-      console.log(this.state)
+      // console.log(this.state)
+
     } catch (error) {
       console.log(error)
     }
   }
 
+  addToClub = async () => {
+
+    const clubId = this.props.match.params.id
+    const club = this.state.club
+
+    console.log(club)
+
+    const pkArr = []
+    club.member.map(memb => pkArr.push(memb.id))
+    const bookPkArr = []
+    club.book.map(bk => bookPkArr.push(bk.id))
+    
+
+    const sendData = {
+      name: club.name,
+      venue: club.venue,
+      postcode: club.postcode,
+      date: club.date,
+      description: club.description,
+      maxspace: club.maxspace,
+      member: pkArr.map(pk => pk),
+      book: bookPkArr.map(book => book),
+      owner: club.owner
+    }
+
+    console.log('data', sendData)
+
+    
+    
+    try {
+    await axios.put(`/api/clubs/${clubId}/`, sendData)
+  } catch (error) {
+    console.log(error.response.data)
+  }
+}
+
   render() {
-    console.log(this.state.data)
-    console.log('club id in state', this.state.clubId)
+    if (!this.state.club) return null
+    console.log(this.state.books)
+    console.log('bookArr in club', this.state.club.book)
+    // console.log(this.state.data)
+    // console.log('club id in state', this.state.clubId)
     // if (!this.state.books) return null
     return(
     <section>
@@ -58,6 +114,7 @@ class BookCreate extends React.Component {
       data={this.state.data}
       handleChange={this.handleChange}
       handleSubmit={this.handleSubmit}/>
+      <button onClick={this.addToClub}>Click me</button>
     </section>
   )
   }

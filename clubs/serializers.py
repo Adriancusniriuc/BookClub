@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+
 class UserSerializer(serializers.ModelSerializer):
 
   class Meta:
@@ -29,7 +30,7 @@ class PopulatedClubSerializer(ClubSerializer):
   book = BookSerializer(many=True)
   owner = UserSerializer()
   member = UserSerializer(many=True)
-  # user = UserSerializer()
+  
  
 
 

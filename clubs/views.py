@@ -5,6 +5,8 @@ from rest_framework.status import HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_422
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Club
+from django.contrib.auth import get_user_model
+User = get_user_model()
 from .serializers import PopulatedClubSerializer, ClubSerializer, UserSerializer, BookSerializer
 
 
@@ -21,7 +23,8 @@ class ClubListView(APIView):
 
   def post(self, request):
     request.data['owner'] = request.user.id
-    # club = Club.objects.get()   KEEP AN EYE ON THIS. NOT SURE WE need it
+    # club = Club.objects.get()   
+    # KEEP AN EYE ON THIS. NOT SURE WE need it
     club = ClubSerializer(data=request.data)
     
     if club.is_valid():
@@ -58,8 +61,7 @@ class ClubDetailView(APIView):
 
     try:
       club = Club.objects.get(pk=pk)
-      if club.owner.id != request.user.id:
-        return Response(status=HTTP_401_UNAUTHORIZED)
+      # member = User.objects.get(pk=pk)
       updated_club = ClubSerializer(club, data=request.data)
       if updated_club.is_valid():
         updated_club.save()
@@ -78,3 +80,5 @@ class ClubDetailView(APIView):
         return Response(status=HTTP_204_NO_CONTENT)
     except Club.DoesNotExist:
         return Response({'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)   
+
+

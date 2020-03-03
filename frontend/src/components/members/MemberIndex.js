@@ -2,55 +2,90 @@ import React from 'react'
 import MemberCard from './MemberCard'
 import axios from 'axios'
 import Authorization from '../../lib/authorization'
-// import { Link } from 'react-router-dom'
+import { headers } from  '../../lib/headers'
 
 
 class MemberIndex extends React.Component {
 state = {
-  members: null,
-  // users: null
+  clubs:{
+    name: '',
+    venue: '',
+    postcode: '',
+    date: '',
+    description: '',
+    maxspace: '',
+    member: [],
+    book: [],
+    owner: {}
+}
 }
 
-async componentDidMount() {
+
+getData = async () => {
   const clubId = this.props.match.params.id
+  
   try {
     const res = await axios.get(`/api/clubs/${clubId}/`)
-    console.log(res.data.member)
-    this.setState({ members: res.data.member })
+    this.setState({ members: res.data.member, clubs: res.data })
+    // const memberId = this.state.members
+    // console.log('here', memberId)
   } catch (error) {
     console.log(error)
   }
+  }
+
+componentDidMount() {
+  this.getData()
 }
+
 
 handleClick = async e => {
   e.preventDefault()
-
-  // const userId = Authorization.getPayload().sub
+  const userId = Authorization.getPayload().sub
   const membersArr = this.state.members
-  // const clubId = this.props.match.params.id
-  const userId = this.props.match.params.id
-  
-  console.log(userId)
   try {
-    // const response = await axios.get(`/api/profiles/${userId}`)
-    const response = await axios.get(`/api/clubs/${userId}`)
-    // const currentUser = membersArr.filter(member => member._id === userId)[0]
-    // const index = membersArr.indexOf(currentUser)
+    const user = await axios.get(`/api/user/`, headers)
+    const currentUser = membersArr.filter(member =>
+      member.id === userId)
+    const index = membersArr.indexOf(currentUser)
     membersArr.some(member => member.id === userId) ? 
-      membersArr.unshift():
-      membersArr.push(response.data.member)
-    this.setState({ 
-      members: membersArr 
-    })
+    membersArr.splice(index, 1) :
+    membersArr.push(user.data)
+    this.setState({  members: membersArr })
+    this.handleSubmit()
   } catch (err) {
     console.log(err)
+  } 
+}
+
+handleSubmit = async e => {
+  const clubId = this.props.match.params.id
+  const { clubs } = this.state
+  const pkArr = []
+  clubs.member.map(memb => pkArr.push(memb.id))
+
+  const bookPkArr = []
+  clubs.book.map(bk => bookPkArr.push(bk.id))
+  // console.log(clubs.member)
+  const sendData = {
+    name: clubs.name,
+    venue: clubs.venue,
+    postcode: clubs.postcode,
+    date: clubs.date,
+    description: clubs.description,
+    maxspace: clubs.maxspace,
+    member: pkArr.map(pk => pk),
+    book: bookPkArr.map(book => book),
+    owner: clubs.owner
+  }
+  try {
+    await axios.put(`/api/clubs/${clubId}/`, sendData, headers) 
+  } catch (error) {
+    console.log(error.response.data)
   }
 }
 
-
-
   render() {
-    console.log(this.state.members) 
     if (!this.state.members) return null
     const userId = Authorization.getPayload().sub
     return(
@@ -60,20 +95,15 @@ handleClick = async e => {
       {this.state.members.map((member, i) => (
         <MemberCard key={i} {...member}/>
       ))}
-
-      <div className="fake-member-card">
-        <img className="fake-member-pic" alt="fake-member" src="https://www.kkmm.gov.my/images/sub_bahagian/icon.png"/>
-        <p>Join this club!</p>
       </div>
-      </div>
-      {/* {Authorization.isAuthenticated() ? */}
-            <div className="buttons">
-              {this.state.members.some(member => member._id === userId) ?
+      {Authorization.isAuthenticated() ?
+            <form className="buttons">
+              {this.state.members.some(member => member.id === userId) ?
                 <button type="button" className="button" onClick={this.handleClick}>Leave Team</button> :
                 <button type="button" className="button" onClick={this.handleClick}>Join Team</button>}
-              {/* {this.isOwner() && <button type="button" className="button">Edit Team</button>} */}
-            </div>
-            {/* : null} */}
+              {/* {this.isOwner() && <button type="button" className="button">Edit Club Atendees</button>} */}
+            </form>
+           : null}
       
     </section>
   )
