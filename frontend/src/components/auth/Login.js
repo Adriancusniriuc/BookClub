@@ -2,13 +2,13 @@ import React from 'react'
 import axios from 'axios'
 // import DjangoCSRFToken from 'django-react-csrftoken'
 import Authorization from '../../lib/authorization'
-import { headers } from '../../lib/headers'
+// import { headers } from '../../lib/headers'
 
 
 class Login extends React.Component {
   state = {
     data: {
-      username: '',
+      email: '',
       password: ''
     }
   }
@@ -21,8 +21,11 @@ class Login extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/login', this.state.data, headers)
+      const res = await axios.post('/api/login', this.state.data)
       Authorization.setToken(res.data.token)
+      //you get a token once you have logged in. 
+      //we do not import headers because that would be asking for a token before actually being logged in 
+    
       console.log(res.data)
       this.props.history.push('/')
       
@@ -41,8 +44,9 @@ class Login extends React.Component {
           {/* <DjangoCSRFToken/> */}
           <div className="form-div">
             <input
-              placeholder="username"
-              name="username"
+              type="email"
+              placeholder="email"
+              name="email"
               onChange={this.handleChange} />
           </div>
           <div className="form-div">

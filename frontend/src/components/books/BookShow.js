@@ -11,9 +11,9 @@ class BookShow extends React.Component {
   }
 
   getData = async () => {
-    // const bookId = this.props.match.params.id
+    const bookId = this.props.match.params.id
     try {
-      const res = await axios.get(`/api/books/`)
+      const res = await axios.get(`/api/books/${bookId}`)
       this.setState({ books: res.data})
     } catch (error) {
       console.log(error)
@@ -104,14 +104,15 @@ class BookShow extends React.Component {
     {/* : null } */}
     <div className="comments">
     {this.state.books.comments.map((comment, i) => (
-        <p key={i}>{comment.text}
+        <div className="comment-del">
+        <p key={i}>{comment.text}</p>
         <button
         onClick={this.handleDeleteComment}
         name={comment.id}
         type="submit"
         className="button">
-        Delete</button>
-        </p>
+        Delete comment</button>
+        </div>
       ))}
         <form className="review-form" onSubmit={this.handleSubmitComment}>
           <div>

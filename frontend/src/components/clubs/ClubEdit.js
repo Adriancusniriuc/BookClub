@@ -1,6 +1,6 @@
 import React from 'react'
 import ClubForm from './ClubForm'
-import Authorization from '../../lib/authorization'
+// import Authorization from '../../lib/authorization'
 import { headers } from '../../lib/headers'
 import axios from 'axios'
 
@@ -36,9 +36,10 @@ class ClubEdit extends React.Component {
     const clubId = this.props.match.params.id
     
     try {
-      const { data } = await axios.put(`/api/clubs/${clubId}/`, this.state.data, headers, {
-        headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
-      })
+      const { data } = await axios.put(`/api/clubs/${clubId}/`, this.state.data, headers)
+      // , {
+      //   headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
+      // })
       this.props.history.push(`/clubs/${data.id}`)
     } catch (error) {
       console.log(error)

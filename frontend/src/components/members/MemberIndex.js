@@ -88,6 +88,7 @@ handleSubmit = async e => {
   render() {
     if (!this.state.members) return null
     const userId = Authorization.getPayload().sub
+    console.log(userId)
     return(
     <section>
       <h1>These are our members!</h1>
@@ -96,14 +97,14 @@ handleSubmit = async e => {
         <MemberCard key={i} {...member}/>
       ))}
       </div>
-      {Authorization.isAuthenticated() ?
+      {/* {Authorization.isAuthenticated() ? */}
             <form className="buttons">
               {this.state.members.some(member => member.id === userId) ?
                 <button type="button" className="button" onClick={this.handleClick}>Leave Team</button> :
                 <button type="button" className="button" onClick={this.handleClick}>Join Team</button>}
               {/* {this.isOwner() && <button type="button" className="button">Edit Club Atendees</button>} */}
             </form>
-           : null}
+           {/* : null} */}
       
     </section>
   )
