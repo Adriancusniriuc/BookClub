@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 // import DjangoCSRFToken from 'django-react-csrftoken'
-import Authorization from '../../lib/authorization'
+// import Authorization from '../../lib/authorization'
 import { headers } from '../../lib/headers'
 
 
@@ -22,7 +22,7 @@ class Login extends React.Component {
     e.preventDefault()
     try {
       const res = await axios.post('/api/login', this.state.data, headers)
-      Authorization.setToken(res.data.token)
+      // Authorization.setToken(res.data.token)
       console.log(res.data)
       this.props.history.push('/')
       

@@ -104,14 +104,15 @@ class BookShow extends React.Component {
     {/* : null } */}
     <div className="comments">
     {this.state.books.comments.map((comment, i) => (
-        <p key={i}>{comment.text}
+        <div className="comment-del">
+        <p key={i}>{comment.text}</p>
         <button
         onClick={this.handleDeleteComment}
         name={comment.id}
         type="submit"
         className="button">
-        Delete</button>
-        </p>
+        Delete comment</button>
+        </div>
       ))}
         <form className="review-form" onSubmit={this.handleSubmitComment}>
           <div>

@@ -19,8 +19,8 @@ const ClubMapComp = ({
     mapboxApiAccessToken={mapboxToken}
     ref={mapRef}
     {...viewport}
-    height={'100vh'}
-    width={'100vw'}
+    height={'80vh'}
+    width={'80vw'}
     mapStyle="mapbox://styles/mapbox/streets-v11"
     onViewportChange={handleViewportChange}
   >
