@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 // import DjangoCSRFToken from 'django-react-csrftoken'
-// import Authorization from '../../lib/authorization'
-import { headers } from '../../lib/headers'
+import Authorization from '../../lib/authorization'
+// import { headers } from '../../lib/headers'
 
 
 class Login extends React.Component {
@@ -21,8 +21,11 @@ class Login extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/login', this.state.data, headers)
-      // Authorization.setToken(res.data.token)
+      const res = await axios.post('/api/login', this.state.data)
+      Authorization.setToken(res.data.token)
+      //you get a token once you have logged in. 
+      //we do not import headers because that would be asking for a token before actually being logged in 
+    
       console.log(res.data)
       this.props.history.push('/')
       

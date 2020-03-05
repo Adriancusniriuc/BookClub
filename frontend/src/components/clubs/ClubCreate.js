@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import ClubForm from './ClubForm'
-import Authorization from '../../lib/authorization'
+// import Authorization from '../../lib/authorization'
 import { headers } from '../../lib/headers'
 
 
@@ -26,9 +26,10 @@ class ClubCreate extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/clubs/', this.state.data, headers, {
-        headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
-      })
+      const res = await axios.post('/api/clubs/', this.state.data, headers)
+      // , {
+      //   headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
+      // })
       this.props.history.push(`/clubs/${res.data.id}`)
     } catch (error) {
       console.log(error)

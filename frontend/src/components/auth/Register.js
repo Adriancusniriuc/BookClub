@@ -13,7 +13,7 @@ class Register extends React.Component {
       password_confirmation: '',
       bio: ''
     }, 
-    emaiValid: false,
+    emailValid: false,
     formValid: false,
     passwordValid: false,
     formErrors: { email: '', password: '' }
