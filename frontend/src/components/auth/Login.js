@@ -8,7 +8,7 @@ import Authorization from '../../lib/authorization'
 class Login extends React.Component {
   state = {
     data: {
-      username: '',
+      email: '',
       password: ''
     }
   }
@@ -44,8 +44,9 @@ class Login extends React.Component {
           {/* <DjangoCSRFToken/> */}
           <div className="form-div">
             <input
-              placeholder="username"
-              name="username"
+              type="email"
+              placeholder="email"
+              name="email"
               onChange={this.handleChange} />
           </div>
           <div className="form-div">

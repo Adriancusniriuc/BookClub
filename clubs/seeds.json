@@ -1,47 +1,62 @@
-[
-  {
-    "model": "clubs.club",
-    "pk": 1,
-    "fields": {
-      "name": "Club 1",
-      "venue": "Venue 1",
-      "postcode": "N17 8ED",
-      "date": "Every Monday",
-      "description": "A nice club",
-      "maxspace": "20",
-      "book": [1],
-      "owner": 1,
-      "member": []
+  [
+    {
+      "model": "clubs.club",
+      "pk": 1,
+      "fields": {
+        "name": "East London Book Club",
+        "venue": "Hackney Central Library",
+        "postcode": "E8 1GQ",
+        "date": "First Saturday of the month at 10am",
+        "description": "We are a friendly bunch of mostly over forties",
+        "maxspace": "20",
+        "book": [1, 5, 2],
+        "owner": 1,
+        "member": []
+      }
+    },
+    {
+      "model": "clubs.club",
+      "pk": 2,
+      "fields": {
+        "name": "The Page-Turners",
+        "venue": "The Hoxton",
+        "postcode": "EC2A 3HU",
+        "date": "Friday Night every other month at 7pm",
+        "description": "It's a lively venue for those with nothing better to do!",
+        "maxspace": "10",
+        "book": [2, 3, 2, 4],
+        "owner": 2,
+        "member": []
+      }
+    },
+    {
+      "model": "clubs.club",
+      "pk": 3,
+      "fields": {
+        "name": "Avid Readers",
+        "venue": "The People's Park Tavern",
+        "postcode": "E9 7BT",
+        "date": "Sundays at 4pm",
+        "description": "We are seeking new members - join us!",
+        "maxspace": "8",
+        "book": [2, 6],
+        "owner": 3,
+        "member": []
+      }
+    },
+    {
+      "model": "clubs.club",
+      "pk": 4,
+      "fields": {
+        "name": "The BookWorms ",
+        "venue": "South Bank Centre",
+        "postcode": "SE1 8XX",
+        "date": "Every other Tuesday at 6:30pm",
+        "description": "Open to everybody of all ages and descriptions",
+        "maxspace": "12",
+        "book": [1, 6, 3, 2],
+        "owner": 4,
+        "member": []
+      }
     }
-  },
-  {
-    "model": "clubs.club",
-    "pk": 2,
-    "fields": {
-      "name": "Club 2",
-      "venue": "Venue 2",
-      "postcode": "E9 6SY",
-      "date": "Every Tuesday",
-      "description": "A great club",
-      "maxspace": "10",
-      "book": [2],
-      "owner": 2,
-      "member": [1]
-    }
-  },
-  {
-    "model": "clubs.club",
-    "pk": 3,
-    "fields": {
-      "name": "Club 3",
-      "venue": "Venue 3",
-      "postcode": "SE4 1JS",
-      "date": "Every Wednesday",
-      "description": "A lovely club",
-      "maxspace": "5",
-      "book": [3],
-      "owner": 1,
-      "member": [1]
-    }
-  }
   ]

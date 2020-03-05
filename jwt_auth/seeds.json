@@ -1,22 +1,117 @@
 [
-  {
-    "model": "jwt_auth.user",
-    "pk": 1,
-    "fields": {
-      "username": "adrian1",
-      "email": "adrian1@email.com",
-      "image": "any string",
-      "bio": "I am an awesome coder"
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 2,
-    "fields": {
-      "username": "clare1",
-      "email": "clare1@email.com",
-      "image": "doesn't matter",
-      "bio": "I am an excellent coder"
-    }
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$CRyKsLxdkmN2$BQxdUdcT1kSu8cucGynzHYsDbUR5zmIEOyYmZRSvGWo=",
+    "last_login": "2020-03-05T14:39:17.995Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-03-05T14:38:23.570Z",
+    "email": "admin@ga.co",
+    "image": "",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
   }
-  ]
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pass",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mia",
+    "first_name": "Mia",
+    "last_name": "M",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-05T14:39:23Z",
+    "email": "mia@email.co",
+    "image": "https://images.pexels.com/photos/247878/pexels-photo-247878.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "bio": "Book worm",
+    "groups": [],
+    "user_permissions": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pass1",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "clare",
+    "first_name": "clare",
+    "last_name": "r",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-05T14:42:49Z",
+    "email": "clare@email.com",
+    "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390189430l/762806.jpg",
+    "bio": "Book worm",
+    "groups": [],
+    "user_permissions": [
+      1,
+      2,
+      3,
+      4,
+      9,
+      10,
+      11,
+      12
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pass",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "adrian",
+    "first_name": "adrian",
+    "last_name": "m",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-05T14:43:26Z",
+    "email": "adrian@email.com",
+    "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1310845376l/386250.jpg",
+    "bio": "Book worm",
+    "groups": [],
+    "user_permissions": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+}
+]

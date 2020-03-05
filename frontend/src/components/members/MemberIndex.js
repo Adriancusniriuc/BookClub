@@ -88,6 +88,7 @@ handleSubmit = async e => {
   render() {
     if (!this.state.members) return null
     const userId = Authorization.getPayload().sub
+    console.log(userId)
     return(
     <section>
       <h1>These are our members!</h1>

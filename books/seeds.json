@@ -1,32 +1,5 @@
 [
   {
-    "model": "books.comment",
-    "pk": 1,
-    "fields": {
-      "text": "An oldie, but a goodie",
-      "book": 1,
-      "owner": 1
-    }
-  },
-  {
-    "model": "books.comment",
-    "pk": 2,
-    "fields": {
-      "text": "Brutal",
-      "book": 2,
-      "owner": 1
-    }
-  },
-  {
-    "model": "books.comment",
-    "pk": 3,
-    "fields": {
-      "text": "An amazing read",
-      "book": 3,
-      "owner": 2
-    }
-  },
-  {
     "model": "books.book",
     "pk": 1,
     "fields": {
@@ -35,7 +8,7 @@
       "genre": "Classic",
       "no_pages": "200",
       "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344922523l/1953.jpg",
-      "rating": 2,
+      "rating": 1,
       "owner": 1
     }
   },
@@ -48,7 +21,7 @@
       "genre": "Classic",
       "no_pages": "300",
       "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327869409l/7624.jpg",
-      "rating": 1,
+      "rating": 2,
       "owner": 1
     }
   },
@@ -58,10 +31,62 @@
     "fields": {
       "title": "Homegoing",
       "author": "Yaa Gyasi",
-      "genre": "Classic",
+      "genre": "Fiction",
       "no_pages": "400",
       "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1448108591l/27071490.jpg",
       "rating": 1,
+      "owner": 2
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "title": "Invisible Women",
+      "author": "Caroline Criado-Pérez",
+      "genre": "Non-fiction",
+      "no_pages": "432",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1543137271l/42948918._SY475_.jpg",
+      "rating": 5,
+      "owner": 1
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "title": "Circe",
+      "author": "Madeline Miller",
+      "genre": "Non-fiction",
+      "no_pages": "393",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565909496l/35959740._SY475_.jpg",
+      "rating": 5,
+      "owner": 2
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "title": "The Five: The Untold Lives of the Women Killed by Jack the Ripper",
+      "author": "Hallie Rubenhold",
+      "genre": "Non-fiction",
+      "no_pages": "415",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535570763l/41564394._SY475_.jpg",
+      "rating": 4,
+      "owner": 1
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "title": "I'll Be Gone in the Dark",
+      "author": "Michelle McNamara",
+      "genre": "Non-fiction",
+      "no_pages": "352",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535570763l/41564394._SY475_.jpg",
+      "rating": 4,
       "owner": 2
     }
   }
