@@ -53,7 +53,7 @@ class BookCreate extends React.Component {
       this.state.club.book.push(bookId)
       console.log('book in data', this.state.club.book)
       this.setState({ data: res.data })
-      // this.props.history.push(`/books/${res.data.id}`)
+      this.props.history.push(`/books/${res.data.id}`)
 
       this.addToClub()
       // this.props.history.goBack()
@@ -89,7 +89,7 @@ class BookCreate extends React.Component {
       owner: club.owner
     }
 
-    console.log('data', sendData)
+    // console.log('data', sendData)
 
     
     
@@ -102,19 +102,18 @@ class BookCreate extends React.Component {
 
   render() {
     if (!this.state.club) return null
-    console.log(this.state.books)
-    console.log('bookArr in club', this.state.club.book)
+    // console.log(this.state.books)
+    // console.log('bookArr in club', this.state.club.book)
     // console.log(this.state.data)
     // console.log('club id in state', this.state.clubId)
     // if (!this.state.books) return null
     return(
     <section>
-      <h1>Book Create</h1>
+      <h1>Create a Book!</h1>
       <BookForm
       data={this.state.data}
       handleChange={this.handleChange}
       handleSubmit={this.handleSubmit}/>
-      <button onClick={this.addToClub}>Click me</button>
     </section>
   )
   }
