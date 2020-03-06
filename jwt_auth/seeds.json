@@ -4,7 +4,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$CRyKsLxdkmN2$BQxdUdcT1kSu8cucGynzHYsDbUR5zmIEOyYmZRSvGWo=",
-    "last_login": "2020-03-05T14:39:17.995Z",
+    "last_login": "2020-03-06T09:40:29.684Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -99,6 +99,18 @@
     "bio": "Book worm",
     "groups": [],
     "user_permissions": [
+      1,
+      2,
+      3,
+      4,
+      9,
+      10,
+      11,
+      12,
+      5,
+      6,
+      7,
+      8,
       25,
       26,
       27,
@@ -110,8 +122,100 @@
       21,
       22,
       23,
-      24
+      24,
+      13,
+      14,
+      15,
+      16,
+      33,
+      34,
+      35,
+      36,
+      17,
+      18,
+      19,
+      20
     ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$p0ebp5LYTVcH$JCft+6pIP2xH5M5uVISwES97343M6jk5YDa2aSHI7M8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "elephant",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-06T09:02:38Z",
+    "email": "elephant@email.com",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+    "bio": "pass",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$JxTsmsbN8ise$DxPaL6tpz/T5rDFf0rP79tq3WST+r/eOaiV38p0nE9w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "crocodile",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-06T09:41:59.516Z",
+    "email": "crocodile@email.com",
+    "image": "http://res.cloudinary.com/dhemsdusi/image/upload/v1583487844/vmnguhtbxerzqhrtkiri.jpg",
+    "bio": "I love pringles",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$s8xUAFLr6OwY$ptTdM8lq5yLdfvhO2EXI68ypvDf8i8RkeBGHvzcHaa8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "koala",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-06T09:44:21Z",
+    "email": "koala@email.com",
+    "image": "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg",
+    "bio": "I moved away from Australia.",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$jkzA26EEWJxa$4GuC0XaeWafT1PBfmAaQYogf3SSsKjX/qW9vfnA7xfU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "BabyShark",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-03-06T09:46:16Z",
+    "email": "babyshark@email.com",
+    "image": "https://news.harvard.edu/wp-content/uploads/2019/04/iStock-515813368.jpg?w=1600&h=900&crop=1",
+    "bio": "I like diving with Clare",
+    "groups": [],
+    "user_permissions": []
   }
 }
 ]
