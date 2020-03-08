@@ -4,7 +4,6 @@ import ImageUpload from '../common/ImageUpload'
 
 const BookForm = ({ data, handleChange, handleSubmit }) => (
     <section className="form">
-      <h1>Book Form</h1>
       <form onSubmit={handleSubmit}>
       <div className="form-div">
           <input

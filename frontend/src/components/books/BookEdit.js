@@ -49,7 +49,7 @@ class BookEdit extends React.Component {
 
     return(
     <section>
-      <h1>Book Edit</h1>
+      <h1>Make edits to your book</h1>
       <BookForm
       data={this.state.data}
       handleChange={this.handleChange}
