@@ -113,6 +113,7 @@ p {
   height: 330px;
   width: 220px;
   text-align: center;
+  box-shadow: 15px 15px 5px grey;
 }
 
 .prev-book {
@@ -126,6 +127,7 @@ p {
   height: 220px;
   width: 150px;
   margin: 40px;
+  box-shadow: 15px 15px 5px grey;
 }
 
 // ! BOOK SHOW PAGE
@@ -146,6 +148,7 @@ p {
   width: 300px;
   height: 450px;
   margin-bottom: 20px;
+  box-shadow: 15px 15px 5px grey;
 }
 
 .comments {
@@ -173,6 +176,7 @@ p {
   border: 1px solid rgb(197, 190, 190);
   margin: 30px;
   width:190px;
+  box-shadow: 15px 15px 5px grey;
   p {
     background-color: rgb(218, 114, 17);
     padding: 20px;
