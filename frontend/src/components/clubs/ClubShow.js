@@ -5,8 +5,11 @@ import axios from 'axios'
 import PreviousBookCard from '../books/PreviousBookCard'
 import Authorization from '../../lib/authorization'
 
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+
 
 class ClubShow extends React.Component {
+
   state = {
     clubs: null,
     currentBook: null,
@@ -40,12 +43,11 @@ class ClubShow extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentBook)
-    console.log(this.state.previousBooks)
-    const clubs = this.state.clubs
-    const clubId = this.props.match.params.id
     if (!this.state.previousBooks) return null
     if (!this.state.clubs) return null
+    const clubs = this.state.clubs
+    const clubId = this.props.match.params.id
+
     return(
     <section>
       
@@ -88,9 +90,11 @@ class ClubShow extends React.Component {
       
       <h2>Previous Books:</h2>
       <div className="prev-book">
+        <button type="button"><IoIosArrowBack /></button>
       {this.state.previousBooks.map((previousBook, i ) => (
-        <PreviousBookCard key={i} {...previousBook}/>
+        <PreviousBookCard key={i} {...previousBook} />
       ))}
+      <button type="button"><IoIosArrowForward /></button>
       </div>
     </section>
   )
