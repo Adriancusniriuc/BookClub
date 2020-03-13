@@ -2,12 +2,14 @@
 import React from 'react'
 import axios from 'axios'
 // import { headers } from '../../lib/headers'
+import BeautyStars from 'beauty-stars'
 import { Link, withRouter } from 'react-router-dom'
 import Authorization from '../../lib/authorization'
 
 class BookShow extends React.Component {
   state = {
     books: null,
+    value: [],
     text: ''
   }
 
@@ -15,7 +17,7 @@ class BookShow extends React.Component {
     const bookId = this.props.match.params.id
     try {
       const res = await axios.get(`/api/books/${bookId}`)
-      this.setState({ books: res.data})
+      this.setState({ books: res.data, value: res.data.rating })
     } catch (error) {
       console.log(error)
     }
@@ -81,15 +83,17 @@ class BookShow extends React.Component {
   render() {
     if (!this.state.books) return null
     const { text } = this.state
-    // const bookId = this.props.match.params.id
-    console.log('hello', this.state.books)
+    console.log(this.state.books.rating)
     return(
       <section>
         <main className="bookshow">
         <div className="book">
     <img className="bookshow-img" alt={this.state.books.title} src={this.state.books.image}/>
+    <BeautyStars
+    value={this.state.value} 
+    onChange={value => this.setState({ value })}
+    />
     {/* <p>{this.state.books.comments.text}</p> */}
-   
     {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
     <div>
     <Link to={`/books/${this.state.books.id}/edit/`}>
