@@ -47,7 +47,8 @@ class ClubShow extends React.Component {
     if (!this.state.clubs) return null
     const clubs = this.state.clubs
     const clubId = this.props.match.params.id
-
+    console.log(this.state.previousBooks)
+    console.log(this.state.currentBook)
     return(
     <section>
       

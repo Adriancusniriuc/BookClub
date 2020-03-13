@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'project.urls'
+
 
 TEMPLATES = [
     {
@@ -146,6 +146,7 @@ AUTH_USER_MODEL = 'jwt_auth.User'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+ROOT_URLCONF = 'project.urls'
 
 STATIC_URL = '/static/'
 

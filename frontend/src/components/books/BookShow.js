@@ -64,7 +64,7 @@ class BookShow extends React.Component {
     e.preventDefault()
     const bookId = this.props.match.params.id
     const commentId = e.target.name
-   
+    
     try {
       await axios.delete(`/api/books/${bookId}/comments/${commentId}/`, {
         headers: { Authorization: `Bearer ${Authorization.getToken()}` } 
@@ -81,9 +81,10 @@ class BookShow extends React.Component {
   }
 
   render() {
+    console.log(this.state.books)
     if (!this.state.books) return null
     const { text } = this.state
-    console.log(this.state.books.rating)
+    console.log(this.state.books)
     return(
       <section>
         <main className="bookshow">
@@ -108,7 +109,7 @@ class BookShow extends React.Component {
 
     {/* : null } */}
     <div className="comments">
-    {/* {this.state.books.comments.map((comment, i) => (
+    {this.state.books.comments.map((comment, i) => (
         <div className="comment-del">
         <p key={i}>{comment.text}</p>
         <button
@@ -118,7 +119,7 @@ class BookShow extends React.Component {
         className="button">
         Delete comment</button>
         </div>
-      ))} */}
+      ))}
         <form className="review-form" onSubmit={this.handleSubmitComment}>
           <div>
             <textarea
