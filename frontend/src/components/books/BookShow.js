@@ -1,3 +1,4 @@
+
 import React from 'react'
 import axios from 'axios'
 // import { headers } from '../../lib/headers'
@@ -103,7 +104,7 @@ class BookShow extends React.Component {
 
     {/* : null } */}
     <div className="comments">
-    {this.state.books.comments.map((comment, i) => (
+    {/* {this.state.books.comments.map((comment, i) => (
         <div className="comment-del">
         <p key={i}>{comment.text}</p>
         <button
@@ -113,7 +114,7 @@ class BookShow extends React.Component {
         className="button">
         Delete comment</button>
         </div>
-      ))}
+      ))} */}
         <form className="review-form" onSubmit={this.handleSubmitComment}>
           <div>
             <textarea
