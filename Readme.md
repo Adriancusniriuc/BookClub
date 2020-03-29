@@ -152,5 +152,5 @@ Moreover, the ability to represent the rating of the book in a stylish manner an
  
 Other improvements we have considered were the addition of a more social feature to our website, such as a direct message functionality or the ability to import the GoodReads ratings for each book.
  
-**<h2>Wins</h2>**
+**<h2>Wins & Key Learnings</h2>**
 I would like to point out that this project, apart from being a challenge in itself, it has also been an attempt of pair coding which has proved to be a total success. We have managed to create a fantastic working flow, coding together all the time using VS Share. On top of this, using our communication skills has helped us tackle different challenges and our idea generating process was based on building on top of each other's ideas. Besides being a steep learning curve for both of us, the joy of working together and being supportive of each other was the biggest win.
