@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import ClubForm from './ClubForm'
 // import Authorization from '../../lib/authorization'
-import { headers } from '../../lib/headers'
+// import { headers } from '../../lib/headers'
 
 
 class ClubCreate extends React.Component {
@@ -26,7 +26,7 @@ class ClubCreate extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/clubs/', this.state.data, headers)
+      const res = await axios.post('/api/clubs/', this.state.data)
       // , {
       //   headers: { Authorization:  `Bearer ${Authorization.getToken()}` }
       // })

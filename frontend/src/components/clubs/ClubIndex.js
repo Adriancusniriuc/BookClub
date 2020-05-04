@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import Authorization from '../../lib/authorization'
 
 // import ClubCard from './ClubCard'
 import ClubMapComp from './ClubMapComp'
@@ -65,6 +66,10 @@ class ClubIndex extends React.Component {
         this.setState({ postcodes: res.data.result })
       }
 
+  // isClubOwner = () => {
+  //   return Authorization.getPayload().sub === this.state.clubs.owner.id
+  // }
+
   render() {
     if (!this.state.postcodes) return null
     if (!this.state.clubs) return null
@@ -74,13 +79,13 @@ class ClubIndex extends React.Component {
     <section>
           <div className="index">
             <h1>Find a book club in your area!</h1>
-            {/* {Authorization.isAuthenticated() ? */}
+            {Authorization.isAuthenticated() ?
               <Link to="/clubs/create">
                 <button
                   className="button"
                   type="button">Create club</button>
               </Link> 
-               {/* : null */}
+             : null}
           </div>
 
           <div className="map-container">

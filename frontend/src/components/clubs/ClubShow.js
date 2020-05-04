@@ -13,7 +13,8 @@ class ClubShow extends React.Component {
   state = {
     clubs: null,
     currentBook: null,
-    previousBooks: null
+    previousBooks: null,
+    loggedIn: false
   }
 
   async componentDidMount(){
@@ -39,7 +40,7 @@ class ClubShow extends React.Component {
   }
 
   isClubOwner = () => {
-    return Authorization.getPayload().sub === this.state.clubs.user.id
+    return Authorization.getPayload().sub === this.state.clubs.owner.id
   }
 
   render() {
@@ -47,7 +48,9 @@ class ClubShow extends React.Component {
     if (!this.state.clubs) return null
     const clubs = this.state.clubs
     const clubId = this.props.match.params.id
-
+    // console.log(this.state.previousBooks)
+    // console.log(this.state.currentBook)
+    console.log(this.state.clubs.owner.id)
     return(
     <section>
       
@@ -65,7 +68,8 @@ class ClubShow extends React.Component {
       <button >Members</button>
       </Link>
 
-      {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
+      {Authorization.isAuthenticated() && this.isClubOwner() ?
+      <>
       <Link to={`/clubs/${clubId}/books/create/`}>
       <button>Add Book</button>
       </Link>
@@ -77,7 +81,8 @@ class ClubShow extends React.Component {
       <button
       onClick={this.handleDelete}>
         Delete Club</button>
-      {/* : null */}
+        </>
+       : console.log('this is not your club')}
 
       </div>
       </div>

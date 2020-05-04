@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import BookForm from './BookForm'
 // import Authorization from '../../lib/authorization'
-import { headers } from '../../lib/headers'
+// import { headers } from '../../lib/headers'
 // import { withRouter } from 'react-router-dom'
 
 
@@ -47,7 +47,7 @@ class BookCreate extends React.Component {
       const clubId = this.props.match.params.id
       console.log(clubId)
       // const data = { ...this.state.data, clubs:[clubId] }
-      const res = await axios.post(`/api/books/`, this.state.data, headers)
+      const res = await axios.post(`/api/books/`, this.state.data)
       const bookId = res.data
       console.log('bookid', bookId)
       this.state.club.book.push(bookId)
