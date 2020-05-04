@@ -31,5 +31,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/clubs/', include('clubs.urls')),
     path('api/books/', include('books.urls')),
+    path('api/', include('jwt_auth.urls')),
     path('', index),
     ]
