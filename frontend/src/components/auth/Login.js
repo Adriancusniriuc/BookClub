@@ -21,7 +21,7 @@ class Login extends React.Component {
   handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/login', this.state.data)
+      const res = await axios.post('/api/login/', this.state.data)
       Authorization.setToken(res.data.token)
       //you get a token once you have logged in. 
       //we do not import headers because that would be asking for a token before actually being logged in 
