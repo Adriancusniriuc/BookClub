@@ -110,8 +110,8 @@ class BookShow extends React.Component {
     {/* : null } */}
     <div className="comments">
     {this.state.books.comments.map((comment, i) => (
-        <div className="comment-del">
-        <p key={i}>{comment.text}</p>
+        <div key={i} className="comment-del">
+        <p>{comment.text}</p>
         <button
         onClick={this.handleDeleteComment}
         name={comment.id}
