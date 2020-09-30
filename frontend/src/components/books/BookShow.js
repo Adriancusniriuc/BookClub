@@ -29,12 +29,14 @@ class BookShow extends React.Component {
 
   handleDelete = async () => {
     const bookId = this.props.match.params.id
+    console.log('not yours')
     try {
       await axios.delete(`/api/books/${bookId}/`, {
         headers: { Authorization: `Bearer ${Authorization.getToken()}` }
       })
       this.props.history.push('/clubs')
       // this.props.history.goBack()
+      console.log('not yours')
     } catch (err) {
       console.log(err)
     }

@@ -68,6 +68,7 @@ class Register extends React.Component {
     try {
       await axios.post('/api/register/', this.state.data)
       this.props.history.push('/login')
+      console.log('success')
     } catch (error) {
       console.log(error)
     }
