@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CurrentBookCard = ({ image, id, name }) => (
-  <div className="current-book">
-    <h2>Current Book:</h2>
+const CurrentBookCard = ({ image, id, title }) => (
+    <>
+    {image !== undefined ?
     <Link to={`/books/${id}`}>
-      <img className="current-book-pic" alt={name} src={image}/>
+      <img className="current-book-pic" alt={title} src={image}/>
     </Link>
-  </div>
+    :
+    <div className="current-book-pic empty">
+      <p>Add your current read!</p>
+    </div>
+    }
+    </>
 )
 
 export default CurrentBookCard

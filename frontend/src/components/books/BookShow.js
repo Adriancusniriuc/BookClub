@@ -43,7 +43,6 @@ class BookShow extends React.Component {
   handleChange = e => {
     const text = e.target.value
     this.setState({ text })
-    // console.log(text)
   }
 
   handleSubmitComment = async (e) => {
@@ -84,62 +83,65 @@ class BookShow extends React.Component {
     console.log(this.state.books)
     if (!this.state.books) return null
     const { text } = this.state
-    console.log(this.state.books)
     return(
       <section>
-        <main className="bookshow">
-        <div className="book">
-    <img className="bookshow-img" alt={this.state.books.title} src={this.state.books.image}/>
-    <BeautyStars
-    value={this.state.value} 
-    onChange={value => this.setState({ value })}
-    />
-    {/* <p>{this.state.books.comments.text}</p> */}
-    {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
-    <div>
-    <Link to={`/books/${this.state.books.id}/edit/`}>
-      <button>Edit Book</button>
-      </Link>
-
-    <button
-    onClick={this.handleDelete}>
-    Delete Book</button>
-    </div>
-    </div>
-
-    {/* : null } */}
-    <div className="comments">
-    {this.state.books.comments.map((comment, i) => (
-        <div key={i} className="comment-del">
-        <p>{comment.text}</p>
-        <button
-        onClick={this.handleDeleteComment}
-        name={comment.id}
-        type="submit"
-        className="button">
-        Delete comment</button>
+        <h1 className="book-h1">{this.state.books.title}</h1>
+        <div className="book-details">
+          <p><strong>Author:</strong> {this.state.books.author}</p>
+          <p><strong>Number of Pages:</strong> {this.state.books.no_pages}</p>
+          <p><strong>Genre:</strong> {this.state.books.genre}</p>
         </div>
-      ))}
-        <form className="review-form" onSubmit={this.handleSubmitComment}>
-          <div>
-            <textarea
-              className="review-textarea"
-              placeholder="Add a comment"
-              onChange={this.handleChange}
-              value={text}
-            />
-          </div>       
-          <div>
-            <button className="button" type="submit">Add</button>
-          </div>  
-              
-        </form>
+        <div className="book-info">
+          
+          <div className="book-left">
+            <img className="bookshow-img" alt={this.state.books.title} src= {this.state.books.image}/>
+              <BeautyStars
+                value={this.state.value} 
+                onChange={value => this.setState({ value })}
+              />
+          </div>
+          <div className="book-right">
+            {/* {Authorization.isAuthenticated() && this.isClubOwner() ? */}
+            <div className="book-buttons">
+              <Link to={`/books/${this.state.books.id}/edit/`}>
+                <button>Edit Book</button>
+              </Link>
+              <button onClick={this.handleDelete}>Delete Book</button>
+            </div>
+            {/* : null } */}
+            <div className="comments">
+          {this.state.books.comments.map((comment, i) => (
+          <div key={i} className="comment-del">
+            <p>{comment.text}</p>
+            <button
+            onClick={this.handleDeleteComment}
+            name={comment.id}
+            type="submit"
+            className="button">
+            Delete comment</button>
+          </div>
+        ))}
+          <form className="review-form" onSubmit={this.handleSubmitComment}>
+            <div>
+              <textarea
+                aria-label="Add a comment"
+                className="review-textarea"
+                placeholder="Add a comment"
+                onChange={this.handleChange}
+                value={text}
+              />
+            </div>       
+            <div>
+              <button className="button" type="submit">Add</button>
+            </div>  
+                
+          </form>
         </div>
-        </main>
+          </div>
+        </div>
       </section>
     )
   }
 }
-
 
 export default withRouter(BookShow)

@@ -43,6 +43,7 @@ class Login extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-div">
             <input
+              aria-label="Email"
               type="email"
               placeholder="email"
               name="email"
@@ -50,12 +51,13 @@ class Login extends React.Component {
           </div>
           <div className="form-div">
             <input
+              aria-label="Password"
               type="password"
               placeholder="password"
               name="password"
               onChange={this.handleChange} />
           </div>
-          <div className="button-div">
+          <div>
             <button
               className="button"
               type="submit">

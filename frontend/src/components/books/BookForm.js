@@ -7,6 +7,7 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
       <form onSubmit={handleSubmit}>
       <div className="form-div">
           <input
+            aria-label="Book title"
             onChange={handleChange}
             placeholder="title"
             name="title" 
@@ -15,6 +16,7 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
         </div>
         <div className="form-div">
           <input
+            aria-label="Author"
             onChange={handleChange}
             placeholder="Author"
             name="author" 
@@ -23,6 +25,7 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
         </div>
         <div className="form-div">
           <input
+            aria-label="Genre"
             onChange={handleChange}
             placeholder="Genre"
             name="genre" 
@@ -31,6 +34,7 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
         </div>
         <div className="form-div">
           <input
+            aria-label="Number of pages"
             onChange={handleChange}
             placeholder="Number of Pages"
             name="no_pages" 
@@ -40,6 +44,7 @@ const BookForm = ({ data, handleChange, handleSubmit }) => (
 
         <div className="form-div">
           <input
+            aria-label="Rating"
             onChange={handleChange}
             placeholder="Rating"
             name="rating" 

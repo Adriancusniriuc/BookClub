@@ -6,6 +6,7 @@ const ClubForm = ({ data, handleChange, handleSubmit }) => (
       <form onSubmit={handleSubmit}>
       <div className="form-div">
           <input
+            aria-label="Club name"
             onChange={handleChange}
             placeholder="Name"
             name="name" 
@@ -14,6 +15,7 @@ const ClubForm = ({ data, handleChange, handleSubmit }) => (
         </div>
         <div className="form-div">
           <input
+            aria-label="Venue"
             onChange={handleChange}
             placeholder="Venue"
             name="venue" 
@@ -22,6 +24,7 @@ const ClubForm = ({ data, handleChange, handleSubmit }) => (
         </div>
         <div className="form-div">
           <input
+            aria-label="Postcode"
             onChange={handleChange}
             placeholder="Postcode"
             name="postcode" 
@@ -30,6 +33,7 @@ const ClubForm = ({ data, handleChange, handleSubmit }) => (
         </div>
         <div className="form-div">
           <input
+            aria-label="When do you meet?"
             onChange={handleChange}
             placeholder="Date"
             name="date" 
@@ -39,6 +43,7 @@ const ClubForm = ({ data, handleChange, handleSubmit }) => (
 
         <div className="form-div">
           <input
+            aria-label="Description of club"
             onChange={handleChange}
             placeholder="Description"
             name="description" 
@@ -47,6 +52,7 @@ const ClubForm = ({ data, handleChange, handleSubmit }) => (
         </div>
           <div className="form-div">
           <input
+            aria-label="Maximum Number"
             onChange={handleChange}
             placeholder="Maximum available spaces"
             name="maxspace" 

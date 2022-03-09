@@ -75,11 +75,9 @@ class Register extends React.Component {
 
 
   render() {
-
     return(
     
     <section>
-      <main className="register">
       <h1>Register</h1>
       <form onSubmit={this.handleSubmit}>
         <div>
@@ -88,6 +86,7 @@ class Register extends React.Component {
 
         <div className="form-div">
           <input
+            aria-label="Username"
             onChange={this.handleChange}
             placeholder="username"
             name="username" 
@@ -96,6 +95,7 @@ class Register extends React.Component {
 
         <div className="form-div">
           <input
+            aria-label="Email"
             onChange={this.handleChange}
             type="email"
             placeholder="email"
@@ -105,6 +105,7 @@ class Register extends React.Component {
 
         <div className="form-div">
           <input
+            aria-label="Password"
             onChange={this.handleChange}
             type="password"
             placeholder="password"
@@ -113,6 +114,7 @@ class Register extends React.Component {
         </div>
         <div className="form-div">
           <input
+            aria-label="Confirm password"
             onChange={this.handleChange}
             type="password"
             placeholder="confirm password"
@@ -122,8 +124,7 @@ class Register extends React.Component {
 
         <div className="form-div">
           <textarea
-            rows="5"
-            cols="30"
+            aria-label="Enter a bio"
             onChange={this.handleChange}
             placeholder="Bio"
             name="bio" />
@@ -136,15 +137,13 @@ class Register extends React.Component {
             fieldName="image"/>
         </div>
 
-        <div className="button-div">
+        <div>
           <button
             className="button"
             type="submit" disabled={!this.state.formValid}>
               Register</button>
         </div>
-
       </form>
-      </main>
     </section>
   )
   }

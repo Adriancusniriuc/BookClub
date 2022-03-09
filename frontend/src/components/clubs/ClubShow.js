@@ -5,11 +5,7 @@ import axios from 'axios'
 import PreviousBookCard from '../books/PreviousBookCard'
 import Authorization from '../../lib/authorization'
 
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-
-
 class ClubShow extends React.Component {
-
   state = {
     clubs: null,
     currentBook: null,
@@ -49,57 +45,48 @@ class ClubShow extends React.Component {
     const clubs = this.state.clubs
     const clubId = this.props.match.params.id
     // console.log(this.state.previousBooks)
-    // console.log(this.state.currentBook)
-    console.log(this.state.clubs.owner.id)
+    console.log(this.state.currentBook)
+    // console.log(this.state.clubs.owner.id)
     return(
     <section>
-      
-      <main className="club-show">
       <div className="club-info">
-      <h2>{clubs.name}</h2>
-      <div className="content">
-      <p><b>We meet at:</b>  {clubs.venue}, {clubs.postcode}</p>
-      <p><b>When?</b>  {clubs.date}</p>
-      <p><b>A bit about us:</b>  {clubs.description}</p>
+        <div className="club-left">
+          <h1>{clubs.name}</h1>
+          <p><b>We meet at:</b> {clubs.venue}, {clubs.postcode}</p>
+          <p><b>When?</b>  {clubs.date}</p>
+          <p><b>A bit about us:</b>  {clubs.description}</p>
+        
+          <div className="club-buttons">
+            <Link to={`/clubs/${clubs.id}/members/`}>
+            <button aria-label="View members">Members</button>
+            </Link>
+            {Authorization.isAuthenticated() && this.isClubOwner() ?
+            <>
+            <Link to={`/clubs/${clubId}/books/create/`}>
+            <button>Add Book</button>
+            </Link>
+            <Link to={`/clubs/${clubs.id}/edit/`}>
+            <button>Edit Club</button>
+            </Link>
+            <button
+            onClick={this.handleDelete}>
+              Delete Club</button>
+              </>
+              : console.log('this is not your club')}
+          </div>
+        </div>
+        <div className="club-right">
+        <h1>Current Book:</h1>
+        <CurrentBookCard {...this.state.currentBook}/>
+        </div>
       </div>
-
-      <div className="button-div">
-      <Link to={`/clubs/${clubs.id}/members/`}>
-      <button >Members</button>
-      </Link>
-
-      {Authorization.isAuthenticated() && this.isClubOwner() ?
-      <>
-      <Link to={`/clubs/${clubId}/books/create/`}>
-      <button>Add Book</button>
-      </Link>
-
-      <Link to={`/clubs/${clubs.id}/edit/`}>
-      <button>Edit Club</button>
-      </Link>
-
-      <button
-      onClick={this.handleDelete}>
-        Delete Club</button>
-        </>
-       : console.log('this is not your club')}
-
-      </div>
-      </div>
-
-      {/* <div className="current-book"> */}
-      <CurrentBookCard {...this.state.currentBook}/>
-      {/* </div> */}
-      </main>
-
-      
-      <h2>Previous Books:</h2>
-      <div className="prev-book">
-        <button type="button"><IoIosArrowBack /></button>
-      {this.state.previousBooks.map((previousBook, i ) => (
-        <PreviousBookCard key={i} {...previousBook} />
-      ))}
-      <button type="button"><IoIosArrowForward /></button>
+      <div className="club-bottom">
+        <h1>Previous Books:</h1>
+        <div className="prev-book-div">
+          {this.state.previousBooks.map((previousBook, i ) => (
+              <PreviousBookCard key={i} {...previousBook} />
+            ))}
+        </div>
       </div>
     </section>
   )
