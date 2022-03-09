@@ -20,6 +20,8 @@ class Login extends React.Component {
 
   handleSubmit = async e => {
     e.preventDefault()
+    console.log(this.state.data)
+
     try {
       const res = await axios.post('/api/login/', this.state.data)
       Authorization.setToken(res.data.token)
@@ -27,6 +29,7 @@ class Login extends React.Component {
       //we do not import headers because that would be asking for a token before actually being logged in 
     
       console.log(res.data)
+      console.log('here')
       this.props.history.push('/')
       
     } catch (error) {
