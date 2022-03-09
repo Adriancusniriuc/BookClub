@@ -28,6 +28,7 @@ export default class ImageUpload extends React.Component {
       <>
       {/* <label>{this.props.labelText}</label> */}
       <input type="file"
+        aria-label="Image Upload"
         onChange={this.handleUpload} />
       </>
       }

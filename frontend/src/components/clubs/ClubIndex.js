@@ -76,14 +76,14 @@ class ClubIndex extends React.Component {
     // console.log('clubs', this.state.clubs)
     // console.log('postcodes', this.state.postcodes)
     return(
-    <section>
-          <div className="index">
+    <section className="index">
+          <div>
             <h1>Find a book club in your area!</h1>
             {Authorization.isAuthenticated() ?
               <Link to="/clubs/create">
                 <button
                   className="button"
-                  type="button">Create club</button>
+                  type="button">Create Club</button>
               </Link> 
              : null}
           </div>

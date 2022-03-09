@@ -16,10 +16,11 @@ const ClubMapComp = ({
     clubs
   }) => (
     <MapGL
+    aria-label="Search"
     mapboxApiAccessToken={mapboxToken}
     ref={mapRef}
     {...viewport}
-    height={'80vh'}
+    height={'70vh'}
     width={'80vw'}
     mapStyle="mapbox://styles/mapbox/streets-v11"
     onViewportChange={handleViewportChange}
@@ -41,7 +42,7 @@ const ClubMapComp = ({
               return club.postcode === postcode.query ? (
                 <Link key={i} to={`/clubs/${club.id}`}>
                   <div>
-                    <img className="marker" alt="bookclub-marker" src='https://image.flaticon.com/icons/svg/29/29302.svg' />
+                    <img className="marker" alt="bookclub-marker" src='https://www.kindpng.com/picc/m/185-1855287_solar-in-schools-resources-book-in-circle-icon.png' />
                   </div>
                 </Link>
               ) : null

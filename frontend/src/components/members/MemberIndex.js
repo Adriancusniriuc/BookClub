@@ -98,10 +98,10 @@ handleSubmit = async e => {
       ))}
       </div>
       {/* {Authorization.isAuthenticated() ? */}
-            <form className="buttons">
+            <form>
               {this.state.members.some(member => member.id === userId) ?
-                <button type="button" className="button" onClick={this.handleClick}>Leave Team</button> :
-                <button type="button" className="button" onClick={this.handleClick}>Join Team</button>}
+                <button type="button" onClick={this.handleClick}>Leave Club</button> :
+                <button type="button" onClick={this.handleClick}>Join Club</button>}
               {/* {this.isOwner() && <button type="button" className="button">Edit Club Atendees</button>} */}
             </form>
            {/* : null} */}
